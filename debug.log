@@ -1,0 +1,77 @@
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Hexo version: \u001b[35m3.7.1\u001b[39m","time":"2018-06-18T07:20:31.125Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Working directory: \u001b[35mE:\\workspace\\node\\\u001b[39m","time":"2018-06-18T07:20:31.133Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Config loaded: \u001b[35mE:\\workspace\\node\\_config.yml\u001b[39m","time":"2018-06-18T07:20:31.296Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2018-06-18T07:20:31.315Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2018-06-18T07:20:31.321Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2018-06-18T07:20:31.324Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2018-06-18T07:20:31.327Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2018-06-18T07:20:31.329Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2018-06-18T07:20:31.334Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2018-06-18T07:20:31.343Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2018-06-18T07:20:31.425Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Loading database.","time":"2018-06-18T07:20:31.457Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":30,"msg":"Start processing","time":"2018-06-18T07:20:31.463Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/favicon.ico\u001b[39m","time":"2018-06-18T07:20:31.502Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/apple-touch-icon.png\u001b[39m","time":"2018-06-18T07:20:31.503Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Theme config loaded.","time":"2018-06-18T07:20:31.535Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35m_posts/hello-world.md\u001b[39m","time":"2018-06-18T07:20:31.536Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35m_config.yml\u001b[39m","time":"2018-06-18T07:20:31.539Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/css/highlight.styl\u001b[39m","time":"2018-06-18T07:20:31.542Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/css/style.styl\u001b[39m","time":"2018-06-18T07:20:31.548Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/iconfont/iconfont.svg\u001b[39m","time":"2018-06-18T07:20:31.549Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/iconfont/iconfont.eot\u001b[39m","time":"2018-06-18T07:20:31.551Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/iconfont/iconfont.woff\u001b[39m","time":"2018-06-18T07:20:31.552Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/iconfont/iconfont.ttf\u001b[39m","time":"2018-06-18T07:20:31.554Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/js/toctotop.js\u001b[39m","time":"2018-06-18T07:20:31.555Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/js/search.json.js\u001b[39m","time":"2018-06-18T07:20:31.556Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/js/totop.js\u001b[39m","time":"2018-06-18T07:20:31.557Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/de-DE.yml\u001b[39m","time":"2018-06-18T07:20:31.594Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/en.yml\u001b[39m","time":"2018-06-18T07:20:31.595Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/ko.yml\u001b[39m","time":"2018-06-18T07:20:31.599Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/tr.yml\u001b[39m","time":"2018-06-18T07:20:31.600Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/es-ES.yml\u001b[39m","time":"2018-06-18T07:20:31.600Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-CN.yml\u001b[39m","time":"2018-06-18T07:20:31.601Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/fr-FR.yml\u001b[39m","time":"2018-06-18T07:20:31.602Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-TW.yml\u001b[39m","time":"2018-06-18T07:20:31.602Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35msource/img/bg.jpg\u001b[39m","time":"2018-06-18T07:20:31.603Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/archive.jade\u001b[39m","time":"2018-06-18T07:20:31.606Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/category.jade\u001b[39m","time":"2018-06-18T07:20:31.606Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/post.jade\u001b[39m","time":"2018-06-18T07:20:31.607Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/index.jade\u001b[39m","time":"2018-06-18T07:20:31.608Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/tag.jade\u001b[39m","time":"2018-06-18T07:20:31.608Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/base.jade\u001b[39m","time":"2018-06-18T07:20:31.609Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/page.jade\u001b[39m","time":"2018-06-18T07:20:31.612Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/after_footer.jade\u001b[39m","time":"2018-06-18T07:20:31.616Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/comment_count.jade\u001b[39m","time":"2018-06-18T07:20:31.617Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/comments_js.jade\u001b[39m","time":"2018-06-18T07:20:31.618Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/helpers.jade\u001b[39m","time":"2018-06-18T07:20:31.619Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/comments.jade\u001b[39m","time":"2018-06-18T07:20:31.619Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/mathjax.jade\u001b[39m","time":"2018-06-18T07:20:31.620Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/mathjax2.jade\u001b[39m","time":"2018-06-18T07:20:31.621Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post_nav.jade\u001b[39m","time":"2018-06-18T07:20:31.621Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/paginator.jade\u001b[39m","time":"2018-06-18T07:20:31.622Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/footer.jade\u001b[39m","time":"2018-06-18T07:20:31.622Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/search.jade\u001b[39m","time":"2018-06-18T07:20:31.623Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/tag.jade\u001b[39m","time":"2018-06-18T07:20:31.623Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/share.jade\u001b[39m","time":"2018-06-18T07:20:31.629Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/archive.jade\u001b[39m","time":"2018-06-18T07:20:31.631Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/totop.jade\u001b[39m","time":"2018-06-18T07:20:31.633Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/links.jade\u001b[39m","time":"2018-06-18T07:20:31.634Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/recent_posts.jade\u001b[39m","time":"2018-06-18T07:20:31.636Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/category.jade\u001b[39m","time":"2018-06-18T07:20:31.638Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/recent_comments.jade\u001b[39m","time":"2018-06-18T07:20:31.639Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/tag.jade\u001b[39m","time":"2018-06-18T07:20:31.641Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/weibo.jade\u001b[39m","time":"2018-06-18T07:20:31.649Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-06-18T07:20:31.921Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-06-18T07:20:31.923Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-06-18T07:20:31.924Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-06-18T07:20:31.928Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-06-18T07:20:31.929Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-06-18T07:20:31.930Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-06-18T07:20:31.931Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2018-06-18T07:20:31.934Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Database saved","time":"2018-06-18T07:20:31.939Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2018-06-18T07:20:37.730Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2018-06-18T07:20:47.323Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":30,"msg":"Bye!","time":"2018-06-18T07:23:07.063Z","v":0}
+{"name":"hexo","hostname":"LAPTOP-39I3DRA8","pid":992,"level":20,"msg":"Database saved","time":"2018-06-18T07:23:07.082Z","v":0}
