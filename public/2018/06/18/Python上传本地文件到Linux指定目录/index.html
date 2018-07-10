@@ -5,20 +5,20 @@
   
 
   
-  <title>atestblog | 你才是程序员</title>
+  <title>Python上传本地文件到Linux指定目录 | 你才是程序员</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1234567891011121314151617181920212223242526import paramiko#服务器信息IP = &amp;apos;10.0.0.1&amp;apos;USER = &amp;apos;root&amp;apos;PASSWORD = &amp;apos;000000&amp;apos;#文件信息file_update = &amp;apos;hello.js&amp;apos;REMORE_PATH = &amp;apos;">
-<meta name="keywords" content="python">
+  <meta name="description" content="import paramiko  #服务器信息 IP = &amp;apos;10.0.0.1&amp;apos; USER = &amp;apos;root&amp;apos; PASSWORD = &amp;apos;000000&amp;apos;  #文件信息 file_update = &amp;apos;hello.js&amp;apos; REMORE_PATH = &amp;apos;/usr/test/&amp;apos; LOCAL_PATH = &amp;apo">
+<meta name="keywords" content="note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="atestblog">
+<meta property="og:title" content="Python上传本地文件到Linux指定目录">
 <meta property="og:url" content="http://hanlaotwo.com/2018/06/18/Python上传本地文件到Linux指定目录/index.html">
 <meta property="og:site_name" content="你才是程序员">
-<meta property="og:description" content="1234567891011121314151617181920212223242526import paramiko#服务器信息IP = &amp;apos;10.0.0.1&amp;apos;USER = &amp;apos;root&amp;apos;PASSWORD = &amp;apos;000000&amp;apos;#文件信息file_update = &amp;apos;hello.js&amp;apos;REMORE_PATH = &amp;apos;">
+<meta property="og:description" content="import paramiko  #服务器信息 IP = &amp;apos;10.0.0.1&amp;apos; USER = &amp;apos;root&amp;apos; PASSWORD = &amp;apos;000000&amp;apos;  #文件信息 file_update = &amp;apos;hello.js&amp;apos; REMORE_PATH = &amp;apos;/usr/test/&amp;apos; LOCAL_PATH = &amp;apo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2018-07-05T01:23:23.030Z">
+<meta property="og:updated_time" content="2018-07-10T13:10:09.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="atestblog">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526import paramiko#服务器信息IP = &amp;apos;10.0.0.1&amp;apos;USER = &amp;apos;root&amp;apos;PASSWORD = &amp;apos;000000&amp;apos;#文件信息file_update = &amp;apos;hello.js&amp;apos;REMORE_PATH = &amp;apos;">
+<meta name="twitter:title" content="Python上传本地文件到Linux指定目录">
+<meta name="twitter:description" content="import paramiko  #服务器信息 IP = &amp;apos;10.0.0.1&amp;apos; USER = &amp;apos;root&amp;apos; PASSWORD = &amp;apos;000000&amp;apos;  #文件信息 file_update = &amp;apos;hello.js&amp;apos; REMORE_PATH = &amp;apos;/usr/test/&amp;apos; LOCAL_PATH = &amp;apo">
   
     <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
   
@@ -79,7 +79,7 @@
         <section id="main"><article id="post-Python上传本地文件到Linux指定目录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/06/18/Python上传本地文件到Linux指定目录/" class="article-date">
-  <time datetime="2018-06-18T08:05:34.000Z" itemprop="datePublished">2018-06-18</time>
+  <time datetime="2018-06-18T08:04:15.000Z" itemprop="datePublished">2018-06-18</time>
 </a>
     
   </div>
@@ -90,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      atestblog
+      Python上传本地文件到Linux指定目录
     </h1>
   
 
@@ -98,14 +98,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import paramiko</span><br><span class="line"></span><br><span class="line">#服务器信息</span><br><span class="line">IP = &apos;10.0.0.1&apos;</span><br><span class="line">USER = &apos;root&apos;</span><br><span class="line">PASSWORD = &apos;000000&apos;</span><br><span class="line"></span><br><span class="line">#文件信息</span><br><span class="line">file_update = &apos;hello.js&apos;</span><br><span class="line">REMORE_PATH = &apos;/usr/test/&apos;</span><br><span class="line">LOCAL_PATH = &apos;textchat.js&apos;</span><br><span class="line">cmd_rm = &apos;rm &apos;+REMORE_PATH+file_update</span><br><span class="line"></span><br><span class="line">#删除</span><br><span class="line">s = paramiko.SSHClient()</span><br><span class="line">s.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">s.connect(hostname=IP, username=USER, password=PASSWORD)</span><br><span class="line">out_rm = s.exec_command(cmd_rm)</span><br><span class="line">s.close</span><br><span class="line"></span><br><span class="line">#上传</span><br><span class="line">t = paramiko.Transport((IP,22))</span><br><span class="line">t.connect(username=USER,password=PASSWORD)</span><br><span class="line">s = paramiko.SFTPClient.from_transport(t)</span><br><span class="line">s.put(LOCAL_PATH,REMORE_PATH+file_update)</span><br><span class="line">t.close</span><br></pre></td></tr></table></figure>
+        <pre><code>import paramiko
+
+#服务器信息
+IP = &apos;10.0.0.1&apos;
+USER = &apos;root&apos;
+PASSWORD = &apos;000000&apos;
+
+#文件信息
+file_update = &apos;hello.js&apos;
+REMORE_PATH = &apos;/usr/test/&apos;
+LOCAL_PATH = &apos;textchat.js&apos;
+cmd_rm = &apos;rm &apos;+REMORE_PATH+file_update
+
+#删除
+s = paramiko.SSHClient()
+s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+s.connect(hostname=IP, username=USER, password=PASSWORD)
+out_rm = s.exec_command(cmd_rm)
+s.close
+
+#上传
+t = paramiko.Transport((IP,22))
+t.connect(username=USER,password=PASSWORD)
+s = paramiko.SFTPClient.from_transport(t)
+s.put(LOCAL_PATH,REMORE_PATH+file_update)
+t.close
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanlaotwo.com/2018/06/18/Python上传本地文件到Linux指定目录/" data-id="cjj7vgf240001agvz9z5c8v5l" class="article-share-link">Share</a>
+      <a data-url="http://hanlaotwo.com/2018/06/18/Python上传本地文件到Linux指定目录/" data-id="cjj2qgrfc0000m0tjcakjl2m6" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/note/">note</a></li></ul>
 
     </footer>
   </div>
@@ -113,20 +139,15 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2018/07/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2018/06/18/Unix格式文件转Dos/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Hello World
+          Unix格式文件转Dos
         
       </div>
     </a>
   
-  
-    <a href="/blog/2018/06/18/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">test</div>
-    </a>
   
 </nav>
 
@@ -144,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
     </div>
   </div>
 
@@ -154,7 +175,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
     </div>
   </div>
 
@@ -176,15 +197,23 @@
       <ul>
         
           <li>
-            <a href="/blog/2018/07/05/hello-world/">Hello World</a>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
           </li>
         
           <li>
-            <a href="/blog/2018/06/18/Python上传本地文件到Linux指定目录/">atestblog</a>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
           </li>
         
           <li>
-            <a href="/blog/2018/06/18/test/">test</a>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
           </li>
         
       </ul>

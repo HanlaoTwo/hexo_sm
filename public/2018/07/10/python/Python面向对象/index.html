@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python面向对象 | 你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="`Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。接下来我们先来简单的了解下面向对象的一些基本特征。面向对象技术">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python面向对象">
+<meta property="og:url" content="http://hanlaotwo.com/2018/07/10/python/Python面向对象/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="`Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。接下来我们先来简单的了解下面向对象的一些基本特征。面向对象技术">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-07-10T13:10:09.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python面向对象">
+<meta name="twitter:description" content="`Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。接下来我们先来简单的了解下面向对象的一些基本特征。面向对象技术">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python/Python面向对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/python/Python面向对象/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python面向对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>`</code><br>Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。<br>如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。<br>接下来我们先来简单的了解下面向对象的一些基本特征。<br>面向对象技术简介<br>类(Class): 用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。<br>类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。<br>数据成员：类变量或者实例变量用于处理类及其实例对象的相关的数据。<br>方法重写：如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。<br>实例变量：定义在方法中的变量，只作用于当前实例的类。<br>继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。<br>实例化：创建一个类的实例，类的具体对象。<br>方法：类中定义的函数。<br>对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。<br>创建类<br>使用class语句来创建一个新类，class之后为类的名称并以冒号结尾，如下实例:<br>class ClassName:<br>   ‘类的帮助信息’   #类文档字符串<br>   class_suite  #类体<br>类的帮助信息可以通过ClassName.<strong>doc</strong>查看。<br>class_suite 由类成员，方法，数据属性组成。<br>实例<br>以下是一个简单的Python类实例:<br>实例</p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8"><a href="#coding-UTF-8" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class Employee:<br>   ‘所有员工的基类’<br>   empCount = 0</p>
+<p>   def <strong>init</strong>(self, name, salary):<br>      self.name = name<br>      self.salary = salary<br>      Employee.empCount += 1</p>
+<p>   def displayCount(self):<br>     print “Total Employee %d” % Employee.empCount</p>
+<p>   def displayEmployee(self):<br>      print “Name : “, self.name,  “, Salary: “, self.salary</p>
+<p>empCount 变量是一个类变量，它的值将在这个类的所有实例之间共享。你可以在内部类或外部类使用 Employee.empCount 访问。<br>第一种方法<strong>init</strong>()方法是一种特殊的方法，被称为类的构造函数或初始化方法，当创建了这个类的实例时就会调用该方法<br>self 代表类的实例，self 在定义类的方法时是必须有的，虽然在调用时不必传入相应的参数。<br>self代表类的实例，而非类<br>类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称, 按照惯例它的名称是 self。<br>class Test:<br>    def prt(self):<br>        print(self)<br>        print(self.<strong>class</strong>)</p>
+<p>t = Test()<br>t.prt()<br>以上实例执行结果为：</p>
+<p>&lt;<strong>main</strong>.Test instance at 0x10d066878&gt;<br><strong>main</strong>.Test<br>从执行结果可以很明显的看出，self 代表的是类的实例，代表当前对象的地址，而 self.class 则指向类。<br>self 不是 python 关键字，我们把他换成 runoob 也是可以正常执行的:<br>实例<br>class Test:<br>    def prt(runoob):<br>        print(runoob)<br>        print(runoob.<strong>class</strong>)</p>
+<p>t = Test()<br>t.prt()<br>以上实例执行结果为：</p>
+<p>&lt;<strong>main</strong>.Test instance at 0x10d066878&gt;<br><strong>main</strong>.Test<br>创建实例对象<br>实例化类其他编程语言中一般用关键字 new，但是在 Python 中并没有这个关键字，类的实例化类似函数调用方式。<br>以下使用类的名称 Employee 来实例化，并通过 <strong>init</strong> 方法接受参数。<br>“创建 Employee 类的第一个对象”<br>emp1 = Employee(“Zara”, 2000)<br>“创建 Employee 类的第二个对象”<br>emp2 = Employee(“Manni”, 5000)<br>访问属性<br>您可以使用点(.)来访问对象的属性。使用如下类的名称访问类变量:<br>emp1.displayEmployee()<br>emp2.displayEmployee()<br>print “Total Employee %d” % Employee.empCount<br>完整实例：<br>实例</p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8-1"><a href="#coding-UTF-8-1" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class Employee:<br>   ‘所有员工的基类’<br>   empCount = 0</p>
+<p>   def <strong>init</strong>(self, name, salary):<br>      self.name = name<br>      self.salary = salary<br>      Employee.empCount += 1</p>
+<p>   def displayCount(self):<br>     print “Total Employee %d” % Employee.empCount</p>
+<p>   def displayEmployee(self):<br>      print “Name : “, self.name,  “, Salary: “, self.salary</p>
+<p>“创建 Employee 类的第一个对象”<br>emp1 = Employee(“Zara”, 2000)<br>“创建 Employee 类的第二个对象”<br>emp2 = Employee(“Manni”, 5000)<br>emp1.displayEmployee()<br>emp2.displayEmployee()<br>print “Total Employee %d” % Employee.empCount<br>执行以上代码输出结果如下：<br>Name :  Zara ,Salary:  2000<br>Name :  Manni ,Salary:  5000<br>Total Employee 2<br>你可以添加，删除，修改类的属性，如下所示：<br>emp1.age = 7  # 添加一个 ‘age’ 属性<br>emp1.age = 8  # 修改 ‘age’ 属性<br>del emp1.age  # 删除 ‘age’ 属性<br>你也可以使用以下函数的方式来访问属性：<br>getattr(obj, name[, default]) : 访问对象的属性。<br>hasattr(obj,name) : 检查是否存在一个属性。<br>setattr(obj,name,value) : 设置一个属性。如果属性不存在，会创建一个新属性。<br>delattr(obj, name) : 删除属性。<br>hasattr(emp1, ‘age’)    # 如果存在 ‘age’ 属性返回 True。<br>getattr(emp1, ‘age’)    # 返回 ‘age’ 属性的值<br>setattr(emp1, ‘age’, 8) # 添加属性 ‘age’ 值为 8<br>delattr(empl, ‘age’)    # 删除属性 ‘age’<br>Python内置类属性<br><strong>dict</strong> : 类的属性（包含一个字典，由类的数据属性组成）<br><strong>doc</strong> :类的文档字符串<br><strong>name</strong>: 类名<br><strong>module</strong>: 类定义所在的模块（类的全名是’<strong>main</strong>.className’，如果类位于一个导入模块mymod中，那么className.<strong>module</strong> 等于 mymod）<br><strong>bases</strong> : 类的所有父类构成元素（包含了一个由所有父类组成的元组）<br>Python内置类属性调用实例如下：<br>实例</p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8-2"><a href="#coding-UTF-8-2" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class Employee:<br>   ‘所有员工的基类’<br>   empCount = 0</p>
+<p>   def <strong>init</strong>(self, name, salary):<br>      self.name = name<br>      self.salary = salary<br>      Employee.empCount += 1</p>
+<p>   def displayCount(self):<br>     print “Total Employee %d” % Employee.empCount</p>
+<p>   def displayEmployee(self):<br>      print “Name : “, self.name,  “, Salary: “, self.salary</p>
+<p>print “Employee.<strong>doc</strong>:”, Employee.<strong>doc</strong><br>print “Employee.<strong>name</strong>:”, Employee.<strong>name</strong><br>print “Employee.<strong>module</strong>:”, Employee.<strong>module</strong><br>print “Employee.<strong>bases</strong>:”, Employee.<strong>bases</strong><br>print “Employee.<strong>dict</strong>:”, Employee.<strong>dict</strong><br>执行以上代码输出结果如下：<br>Employee.<strong>doc</strong>: 所有员工的基类<br>Employee.<strong>name</strong>: Employee<br>Employee.<strong>module</strong>: <strong>main</strong><br>Employee.<strong>bases</strong>: ()<br>Employee.<strong>dict</strong>: {‘<strong>module</strong>‘: ‘<strong>main</strong>‘, ‘displayCount’: <function displaycount="" at="" 0x10a939c80="">, ‘empCount’: 0, ‘displayEmployee’: <function displayemployee="" at="" 0x10a93caa0="">, ‘<strong>doc</strong>‘: ‘\xe6\x89\x80\xe6\x9c\x89\xe5\x91\x98\xe5\xb7\xa5\xe7\x9a\x84\xe5\x9f\xba\xe7\xb1\xbb’, ‘<strong>init</strong>‘: <function __init__="" at="" 0x10a939578="">}<br>python对象销毁(垃圾回收)<br>Python 使用了引用计数这一简单技术来跟踪和回收垃圾。<br>在 Python 内部记录着所有使用中的对象各有多少引用。<br>一个内部跟踪变量，称为一个引用计数器。<br>当对象被创建时， 就创建了一个引用计数， 当这个对象不再需要时， 也就是说， 这个对象的引用计数变为0 时， 它被垃圾回收。但是回收不是”立即”的， 由解释器在适当的时机，将垃圾对象占用的内存空间回收。<br>a = 40      # 创建对象  <40><br>b = a       # 增加引用， <40> 的计数<br>c = [b]     # 增加引用.  <40> 的计数</40></40></40></function></function></function></p>
+<p>del a       # 减少引用 <40> 的计数<br>b = 100     # 减少引用 <40> 的计数<br>c[0] = -1   # 减少引用 <40> 的计数<br>垃圾回收机制不仅针对引用计数为0的对象，同样也可以处理循环引用的情况。循环引用指的是，两个对象相互引用，但是没有其他变量引用他们。这种情况下，仅使用引用计数是不够的。Python 的垃圾收集器实际上是一个引用计数器和一个循环垃圾收集器。作为引用计数的补充， 垃圾收集器也会留心被分配的总量很大（及未通过引用计数销毁的那些）的对象。 在这种情况下， 解释器会暂停下来， 试图清理所有未引用的循环。<br>实例<br>析构函数 <strong>del</strong> ，<strong>del</strong>在对象销毁的时候被调用，当对象不再被使用时，<strong>del</strong>方法运行：<br>实例</40></40></40></p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8-3"><a href="#coding-UTF-8-3" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class Point:<br>   def <strong>init</strong>( self, x=0, y=0):<br>      self.x = x<br>      self.y = y<br>   def <strong>del</strong>(self):<br>      class_name = self.<strong>class</strong>.<strong>name</strong><br>      print class_name, “销毁”</p>
+<p>pt1 = Point()<br>pt2 = pt1<br>pt3 = pt1<br>print id(pt1), id(pt2), id(pt3) # 打印对象的id<br>del pt1<br>del pt2<br>del pt3<br>以上实例运行结果如下：<br>3083401324 3083401324 3083401324<br>Point 销毁<br>注意：通常你需要在单独的文件中定义一个类，<br>类的继承<br>面向对象的编程带来的主要好处之一是代码的重用，实现这种重用的方法之一是通过继承机制。继承完全可以理解成类之间的类型和子类型关系。<br>需要注意的地方：继承语法 class 派生类名（基类名）：//… 基类名写在括号里，基本类是在类定义的时候，在元组之中指明的。<br>在python中继承中的一些特点：<br>1：在继承中基类的构造（<strong>init</strong>()方法）不会被自动调用，它需要在其派生类的构造中亲自专门调用。<br>2：在调用基类的方法时，需要加上基类的类名前缀，且需要带上self参数变量。区别于在类中调用普通函数时并不需要带上self参数<br>3：Python总是首先查找对应类型的方法，如果它不能在派生类中找到对应的方法，它才开始到基类中逐个查找。（先在本类中查找调用的方法，找不到才去基类中找）。<br>如果在继承元组中列了一个以上的类，那么它就被称作”多重继承” 。<br>语法：<br>派生类的声明，与他们的父类类似，继承的基类列表跟在类名之后，如下所示：<br>class SubClassName (ParentClass1[, ParentClass2, …]):<br>   ‘Optional class documentation string’<br>   class_suite<br>实例</p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8-4"><a href="#coding-UTF-8-4" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class Parent:        # 定义父类<br>   parentAttr = 100<br>   def <strong>init</strong>(self):<br>      print “调用父类构造函数”</p>
+<p>   def parentMethod(self):<br>      print ‘调用父类方法’</p>
+<p>   def setAttr(self, attr):<br>      Parent.parentAttr = attr</p>
+<p>   def getAttr(self):<br>      print “父类属性 :”, Parent.parentAttr</p>
+<p>class Child(Parent): # 定义子类<br>   def <strong>init</strong>(self):<br>      print “调用子类构造方法”</p>
+<p>   def childMethod(self):<br>      print ‘调用子类方法 child method’</p>
+<p>c = Child()          # 实例化子类<br>c.childMethod()      # 调用子类的方法<br>c.parentMethod()     # 调用父类方法<br>c.setAttr(200)       # 再次调用父类的方法<br>c.getAttr()          # 再次调用父类的方法<br>以上代码执行结果如下：<br>调用子类构造方法<br>调用子类方法 child method<br>调用父类方法<br>父类属性 : 200<br>你可以继承多个类<br>class A:        # 定义类 A<br>…..</p>
+<p>class B:         # 定义类 B<br>…..</p>
+<p>class C(A, B):   # 继承类 A 和 B<br>…..<br>你可以使用issubclass()或者isinstance()方法来检测。<br>issubclass() - 布尔函数判断一个类是另一个类的子类或者子孙类，语法：issubclass(sub,sup)<br>isinstance(obj, Class) 布尔函数如果obj是Class类的实例对象或者是一个Class子类的实例对象则返回true。<br>方法重写<br>如果你的父类方法的功能不能满足你的需求，你可以在子类重写你父类的方法：<br>实例：<br>实例</p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8-5"><a href="#coding-UTF-8-5" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class Parent:        # 定义父类<br>   def myMethod(self):<br>      print ‘调用父类方法’</p>
+<p>class Child(Parent): # 定义子类<br>   def myMethod(self):<br>      print ‘调用子类方法’</p>
+<p>c = Child()          # 子类实例<br>c.myMethod()         # 子类调用重写方法<br>执行以上代码输出结果如下：<br>调用子类方法<br>基础重载方法<br>下表列出了一些通用的功能，你可以在自己的类重写：<br>序号    方法, 描述 &amp; 简单的调用<br>1    <strong>init</strong> ( self [,args…] )<br>构造函数<br>简单的调用方法: obj = className(args)<br>2    <strong>del</strong>( self )<br>析构方法, 删除一个对象<br>简单的调用方法 : dell obj<br>3    <strong>repr</strong>( self )<br>转化为供解释器读取的形式<br>简单的调用方法 : repr(obj)<br>4    <strong>str</strong>( self )<br>用于将值转化为适于人阅读的形式<br>简单的调用方法 : str(obj)<br>5    <strong>cmp</strong> ( self, x )<br>对象比较<br>简单的调用方法 : cmp(obj, x)<br>运算符重载<br>Python同样支持运算符重载，实例如下：<br>实例</p>
+<p>#!/usr/bin/python</p>
+<p>class Vector:<br>   def <strong>init</strong>(self, a, b):<br>      self.a = a<br>      self.b = b</p>
+<p>   def <strong>str</strong>(self):<br>      return ‘Vector (%d, %d)’ % (self.a, self.b)</p>
+<p>   def <strong>add</strong>(self,other):<br>      return Vector(self.a + other.a, self.b + other.b)</p>
+<p>v1 = Vector(2,10)<br>v2 = Vector(5,-2)<br>print v1 + v2<br>以上代码执行结果如下所示:<br>Vector(7,8)<br>类属性与方法<br>类的私有属性<br><strong>private_attrs：两个下划线开头，声明该属性为私有，不能在类的外部被使用或直接访问。在类内部的方法中使用时 self.</strong>private_attrs。<br>类的方法<br>在类地内部，使用def关键字可以为类定义一个方法，与一般函数定义不同，类方法必须包含参数self,且为第一个参数<br>类的私有方法<br><strong>private_method：两个下划线开头，声明该方法为私有方法，不能在类地外部调用。在类的内部调用 self.</strong>private_methods<br>实例</p>
+<p>#!/usr/bin/python</p>
+<h1 id="coding-UTF-8-6"><a href="#coding-UTF-8-6" class="headerlink" title="-- coding: UTF-8 --"></a>-<em>- coding: UTF-8 -</em>-</h1><p>class JustCounter:<br>    __secretCount = 0  # 私有变量<br>    publicCount = 0    # 公开变量</p>
+<pre><code>def count(self):
+    self.__secretCount += 1
+    self.publicCount += 1
+    print self.__secretCount
+</code></pre><p>counter = JustCounter()<br>counter.count()<br>counter.count()<br>print counter.publicCount<br>print counter.<strong>secretCount  # 报错，实例不能访问私有变量<br>Python 通过改变名称来包含类名:<br>1<br>2<br>2<br>Traceback (most recent call last):<br>  File “test.py”, line 17, in <module><br>    print counter.</module></strong>secretCount  # 报错，实例不能访问私有变量<br>AttributeError: JustCounter instance has no attribute ‘<strong>secretCount’<br>Python不允许实例化的类访问私有数据，但你可以使用 object._className</strong>attrName 访问属性，将如下代码替换以上代码的最后一行代码：<br>…………………….<br>print counter._JustCounter__secretCount<br>执行以上代码，执行结果如下：<br>1<br>2<br>2<br>2<br>单下划线、双下划线、头尾双下划线说明：<br><strong>foo</strong>: 定义的是特列方法，类似 <strong>init</strong>() 之类的。<br>_foo: 以单下划线开头的表示的是 protected 类型的变量，即保护类型只能允许其本身与子类进行访问，不能用于 from module import *<br>__foo: 双下划线的表示的是私有类型(private)的变量, 只能是允许这个类本身进行访问了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/python/Python面向对象/" data-id="cjjedmhb800690gtj0d0h45j4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/07/10/python/Python操作excel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python操作excel
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/07/10/python/TKinter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TKinter</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

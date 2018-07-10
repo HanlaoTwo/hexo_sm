@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个码畜的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你才是程序员">
+<meta property="og:url" content="http://hanlaotwo.com/page/2/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="一个码畜的博客">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你才是程序员">
+<meta name="twitter:description" content="一个码畜的博客">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-数据库/oracle/查看编码和字符集转化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/oracle/查看编码和字符集转化/" class="article-date">
+  <time datetime="2018-07-10T13:09:20.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/oracle/查看编码和字符集转化/">查看编码和字符集转化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>查看数据库编码</p>
+<pre><code>select * from nls_database_parameters;
+
+SELECT userenv(&apos;language&apos;) FROM dual;
+</code></pre><p>1、chr()</p>
+<p>chr()函数是将ASCII码转换为字符：ASCII码 -&gt; 字符，ASCII码对应的字符可以参见本文后面的ASCII编码表。</p>
+<p>2、ascii()</p>
+<p>ascii()函数是chr()的反函数，它表示将字符转换为ASCII码：字符 -&gt; ASCII码。</p>
+<p>3、asciistr()</p>
+<p>asciistr()函数是将字符串转换为ascii字符串</p>
+<p>4、convert()</p>
+<p>convert() 函数的转换是用于将字符串从一个字符集转化为另一个字符集，函数形式：convert(char, dest_char_set [, source_char_set])，其中char表示要转换的字符串，dest_char_set表示要转换成的目的字符 集，source_char_set是char的原本字符集，如果缺省，则默认是数据库的字符集。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/oracle/查看编码和字符集转化/" data-id="cjjedmhdl00a10gtj4t2v0p92" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/oracle/">oracle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/oracle/oracle AWR 快照" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/oracle/oracle AWR 快照/" class="article-date">
+  <time datetime="2018-07-10T13:09:20.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/oracle/oracle AWR 快照/">oracle AWR 快照</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://343766868.blog.163.com/blog/static/48314056201110124513396/" target="_blank" rel="noopener">http://343766868.blog.163.com/blog/static/48314056201110124513396/</a><br><a href="http://blog.csdn.net/stevendbaguo/article/details/8596653" target="_blank" rel="noopener">http://blog.csdn.net/stevendbaguo/article/details/8596653</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/oracle/oracle AWR 快照/" data-id="cjjedmhde009r0gtj9r86uulw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/oracle/">oracle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/mysql/mysql问题处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/mysql/mysql问题处理/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/mysql/mysql问题处理/">mysql问题处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.cnblogs.com/digdeep/p/4892953.html" target="_blank" rel="noopener">MySQL出现Waiting for table metadata lock的原因以及解决方法</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/mysql/mysql问题处理/" data-id="cjjedmhdj009y0gtj9l4qazmr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/mysql/mysql执行脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/mysql/mysql执行脚本/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/mysql/mysql执行脚本/">mysql执行脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>`</code><br>、创建包含sql命令的sql脚本文件<br>文件中包含一些列的sql语句，每条语句最后以;结尾，文件内容示例如下：<br>–创建表，使用“–”进行注释<br>create table 表名称<br>(<br>  Guid Varchar(38) not null primary key,<br>  Title Varchar(255),       </p>
+<p>) TYPE=InnoDB;<br>–在表A中增加字段Status<br>alter table A add Status TinyInt default ‘0’;<br>–在表A上创建索引<br>create index XX_TaskId_1 on A(Id_);<br>–在A表中添加一条记录<br>Insert into A (Id,ParentId, Name) values(1,0,’名称’);<br>–添加、修改、删除数据后，有可能需要提交事务<br>Commit;<br>2、执行sql脚本文件<br>方法一 使用cmd命令执行(windows下，unix或linux在的其控制台下)<br>【Mysql的bin目录】\mysql –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】，示例：<br>D:\mysql\bin\mysql –uroot –p123456 -Dtest&lt;d:\test\ss.sql<br>注意：<br>A、如果在sql脚本文件中使用了use 数据库，则-D数据库选项可以忽略<br>B、如果【Mysql的bin目录】中包含空格，则需要使用“”包含，如：“C:\Program Files\mysql\bin\mysql” –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】</p>
+<p>方法二 进入mysql的控制台后，使用source命令执行<br>Mysql&gt;source 【sql脚本文件的路径全名】 或 Mysql&gt;. 【sql脚本文件的路径全名】，示例：<br>source d:\test\ss.sql 或者 . d:\test\ss.sql</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/mysql/mysql执行脚本/" data-id="cjjedmhdj009w0gtjadu6fa2q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/mysql/阻塞，连接数，查看事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/mysql/阻塞，连接数，查看事务/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/mysql/阻塞，连接数，查看事务/">阻塞，连接数，查看事务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>查看链接数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show processlist;</span><br><span class="line">+-------+------+-----------------------+---------+---------+------+-------+------------------+</span><br><span class="line">| Id    | User | Host                  | db      | Command | Time | State | Info             |</span><br><span class="line">+-------+------+-----------------------+---------+---------+------+-------+------------------+</span><br><span class="line">|     1 | scm  | localhost:42098       | cm      | Sleep   |   55 |       | NULL             |</span><br><span class="line">|     2 | scm  | localhost:42099       | cm      | Sleep   |   55 |       | NULL             |</span><br><span class="line">|     3 | scm  | localhost:42100       | cm      | Sleep   |    2 |       | NULL             |</span><br><span class="line">|     4 | scm  | localhost:42101       | cm      | Sleep   |   55 |       | NULL             |</span><br></pre></td></tr></table></figure></p>
+<p>查看未完成的事务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from information_schema.innodb_trx\G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">                    trx_id: 11366774</span><br><span class="line">                 trx_state: RUNNING</span><br><span class="line">               trx_started: 2017-11-21 09:29:11</span><br><span class="line">     trx_requested_lock_id: NULL</span><br><span class="line">          trx_wait_started: NULL</span><br><span class="line">                trx_weight: 0</span><br><span class="line">       trx_mysql_thread_id: 28961</span><br><span class="line">                 trx_query: NULL</span><br><span class="line">       trx_operation_state: NULL</span><br><span class="line">         trx_tables_in_use: 0</span><br><span class="line">         trx_tables_locked: 0</span><br><span class="line">          trx_lock_structs: 0</span><br><span class="line">     trx_lock_memory_bytes: 360</span><br><span class="line">           trx_rows_locked: 0</span><br><span class="line">         trx_rows_modified: 0</span><br><span class="line">   trx_concurrency_tickets: 0</span><br><span class="line">       trx_isolation_level: REPEATABLE READ</span><br><span class="line">         trx_unique_checks: 1</span><br><span class="line">    trx_foreign_key_checks: 1</span><br><span class="line">trx_last_foreign_key_error: NULL</span><br><span class="line"> trx_adaptive_hash_latched: 0</span><br><span class="line"> trx_adaptive_hash_timeout: 10000</span><br><span class="line">          trx_is_read_only: 0</span><br><span class="line">trx_autocommit_non_locking: 0</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; kill 28961;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/mysql/阻塞，连接数，查看事务/" data-id="cjjedmhdh009t0gtjelngbd1n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/mysql/mysql存储过程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/mysql/mysql存储过程/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/mysql/mysql存储过程/">mysql存储过程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="直接修改"><a href="#直接修改" class="headerlink" title="直接修改"></a>直接修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS modrow;</span><br><span class="line">CREATE PROCEDURE modrow()</span><br><span class="line">  BEGIN</span><br><span class="line"></span><br><span class="line">    #DECLARE mod_row_count INT;</span><br><span class="line"></span><br><span class="line">    SELECT count(COLUMN_NAME)</span><br><span class="line">    as mod_row_count</span><br><span class="line">    FROM information_schema.columns</span><br><span class="line">    WHERE table_name = &apos;bopbusitypeinfo&apos;</span><br><span class="line">          AND column_name IN (&apos;acpt_category_no&apos;,&apos;acpt_category_name&apos;,&apos;param_id&apos;,&apos;param_name&apos;,&apos;need_flag&apos;,&apos;organ_flag&apos;,&apos;data_type&apos;,&apos;int_config&apos;,&apos;str_config&apos;);</span><br><span class="line"></span><br><span class="line">    IF mod_row_count = 9</span><br><span class="line">    THEN</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY acpt_category_no VARCHAR(4);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY acpt_category_name VARCHAR(64);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY param_id DECIMAL(10);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY param_name VARCHAR(2000);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY need_flag CHAR(1);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY organ_flag CHAR(1);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY data_type CHAR(1);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY int_config DECIMAL(10);</span><br><span class="line">      ALTER TABLE hselite.bopbusitypeinfo MODIFY str_config VARCHAR(255);</span><br><span class="line">    END IF;</span><br><span class="line"></span><br><span class="line">  END;</span><br><span class="line">CALL modrow();</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="定义分隔符"><a href="#定义分隔符" class="headerlink" title="定义分隔符"></a>定义分隔符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">delimiter //</span><br><span class="line">DROP PROCEDURE IF EXISTS modrow;</span><br><span class="line">CREATE PROCEDURE modrow()</span><br><span class="line">  BEGIN</span><br><span class="line">  select 1+1 from dual;</span><br><span class="line">  END;</span><br><span class="line">CALL modrow();</span><br><span class="line">//</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="带参数的"><a href="#带参数的" class="headerlink" title="带参数的"></a>带参数的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS modrow;</span><br><span class="line">CREATE PROCEDURE modrow(IN dbname VARCHAR(255),IN tablename VARCHAR(255),IN cloumname VARCHAR(255),IN descripe VARCHAR(1000))</span><br><span class="line">  BEGIN</span><br><span class="line">    DECLARE mod_row_count INT;</span><br><span class="line">    SET @dbname = dbname;</span><br><span class="line">    SET @tablename = tablename;</span><br><span class="line">    SET @cloumname = cloumname;</span><br><span class="line">    SET @descripe = descripe;</span><br><span class="line"></span><br><span class="line">    SELECT count(COLUMN_NAME)</span><br><span class="line">    INTO mod_row_count</span><br><span class="line">    FROM information_schema.columns</span><br><span class="line">    WHERE table_name = @tablename</span><br><span class="line">          AND column_name = @cloumname;</span><br><span class="line"></span><br><span class="line">    IF mod_row_count = 1</span><br><span class="line">    THEN</span><br><span class="line">      SET @insertSql = @descripe;</span><br><span class="line">      PREPARE stmtinsert FROM @insertSql;</span><br><span class="line">      EXECUTE stmtinsert;</span><br><span class="line">      DEALLOCATE PREPARE stmtinsert;</span><br><span class="line">    END IF;</span><br><span class="line">  END;</span><br><span class="line">CALL modrow(&apos;hselite&apos;,&apos;accept&apos;,&apos;prof_flag&apos;,&apos;ALTER TABLE hselite.accept MODIFY prof_flag VARCHAR(4)&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="动态sql"><a href="#动态sql" class="headerlink" title="动态sql"></a>动态sql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS hselite.pro_mod_tab_col;</span><br><span class="line">CREATE DEFINER=`root`@`%` PROCEDURE `pro_mod_tab_col`(IN ddname varchar(64),IN talname varchar(64),IN colname varchar(64),IN typename varchar(64),IN commt varchar(64),IN def_var varchar(64))</span><br><span class="line">  BEGIN</span><br><span class="line">    DECLARE num VARCHAR(100);</span><br><span class="line">    declare l_tab_name varchar(100); #表名</span><br><span class="line">    declare l_dd_name varchar(100);  #库名</span><br><span class="line">    declare l_col_name varchar(100); #字段名</span><br><span class="line">    declare l_type_name varchar(100); #字段类型</span><br><span class="line">    declare l_commt varchar(100);  #注释</span><br><span class="line">    declare l_def_var varchar(100);  #默认值</span><br><span class="line">    declare SQL_FOR_alter varchar(500);  ##动态sql</span><br><span class="line"></span><br><span class="line">    set @l_dd_name=ddname ;</span><br><span class="line">    set @l_tab_name=talname;</span><br><span class="line">    set @l_col_name=colname;</span><br><span class="line">    set @l_type_name=typename;</span><br><span class="line">    set @l_commt=commt;</span><br><span class="line">    set @l_def_var=def_var;</span><br><span class="line"></span><br><span class="line">    set @SQL_FOR_alter=CONCAT(&quot;ALTER TABLE &quot; ,@l_dd_name,&apos;.&apos;,@l_tab_name, &quot; MODIFY &quot;,@l_col_name,&apos; &apos;,@l_type_name ,&quot; DEFAULT &apos;&quot; ,@l_def_var,&quot;&apos; not null COMMENT &apos;&quot;, @l_commt,&quot; &apos;;&quot;);</span><br><span class="line">    #select  @SQL_FOR_alter;</span><br><span class="line">    select count(1) into num from information_schema.columns WHERE table_schema=@l_dd_name and table_name = @l_tab_name AND column_name =@l_col_name;</span><br><span class="line">    #select num;</span><br><span class="line">    IF (num=1) THEN</span><br><span class="line">      PREPARE stmt1 FROM @SQL_FOR_alter;</span><br><span class="line">      EXECUTE stmt1;</span><br><span class="line">      DEALLOCATE PREPARE stmt1 ;</span><br><span class="line">    end if;</span><br><span class="line">  END;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/mysql/mysql存储过程/" data-id="cjjedmhdf009s0gtj5jix11j9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/安装tomcat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/安装tomcat/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/安装tomcat/">安装tomcat</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir software</span><br><span class="line">cd software</span><br><span class="line">wget http://apache.fayea.com/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz</span><br><span class="line">tar -zxvf apache-tomcat-8.5.9.tar.gz</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/安装tomcat/" data-id="cjjedmhaq00540gtja9up8fi3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/mysql/mysql备份" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/mysql/mysql备份/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/mysql/mysql备份/">mysql备份</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="备份一个数据库"><a href="#备份一个数据库" class="headerlink" title="备份一个数据库"></a>备份一个数据库</h4><p>　　mysqldump基本语法：</p>
+<pre><code>mysqldump -u username -p dbname table1 table2 ...-&gt; BackupName.sql
+</code></pre><p>　　其中：</p>
+<p>dbname参数表示数据库的名称；</p>
+<p>table1和table2参数表示需要备份的表的名称，为空则整个数据库备份；</p>
+<p>BackupName.sql参数表设计备份文件的名称，文件名前面可以加上一个绝对路径。通常将数据库被分成一个后缀名为sql的文件；</p>
+<h4 id="备份多个数据库"><a href="#备份多个数据库" class="headerlink" title="备份多个数据库"></a>备份多个数据库</h4><p>　　语法：</p>
+<pre><code>mysqldump -u username -p --databases dbname2 dbname2 &gt; Backup.sql
+</code></pre><p>　　加上了–databases选项，然后后面跟多个数据库</p>
+<pre><code>mysqldump -u root -p --databases test mysql &gt; D:\backup.sql
+</code></pre><h4 id="备份所有数据库"><a href="#备份所有数据库" class="headerlink" title="备份所有数据库"></a>备份所有数据库</h4><p>　　mysqldump命令备份所有数据库的语法如下：</p>
+<pre><code>mysqldump -u username -p -all-databases &gt; BackupName.sql
+</code></pre><p>　　示例：</p>
+<pre><code>mysqldump -u -root -p -all-databases &gt; D:\all.sql
+</code></pre><h4 id="备份表"><a href="#备份表" class="headerlink" title="备份表"></a>备份表</h4><p>语句：</p>
+<pre><code>select * from students where Age &gt; 30 into outfile ‘/tmp/stud.txt&apos; ;   //将年龄大于三十的同学的信息备份出来 
+</code></pre><p>备份的目录路径必须让当前运行mysql服务器的用户mysql具有访问权限</p>
+<p>可能会报错</p>
+<pre><code>mysqldump: Got error: 1290以及secure-file-priv option
+</code></pre><p>secure-file-priv参数是用来限制LOAD DATA, SELECT … OUTFILE, and LOAD_FILE()传到哪个指定目录的。</p>
+<p>当secure_file_priv的值为null ，表示限制mysqld 不允许导入|导出</p>
+<p>当secure_file_priv的值为/tmp/ ，表示限制mysqld 的导入|导出只能发生在/tmp/目录下</p>
+<p>当secure_file_priv的值没有具体值时，表示不对mysqld 的导入|导出做限制</p>
+<p>查看系统值</p>
+<pre><code>show global variables like &apos;%secure%&apos;; 
+</code></pre><p>修改系统值</p>
+<p>mysql.cnf中的[mysqld]加入secure_file_priv = </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/mysql/mysql备份/" data-id="cjjedmhdc009p0gtjjbvaz99b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库/mysql/MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/数据库/mysql/MySQL/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/数据库/mysql/MySQL/">MySQL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="修改用户名密码："><a href="#修改用户名密码：" class="headerlink" title="修改用户名密码："></a>修改用户名密码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE user SET password=PASSWORD(&apos;123456&apos;) WHERE user=&apos;root&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="查勘表结构"><a href="#查勘表结构" class="headerlink" title="查勘表结构"></a>查勘表结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show Create table 【tablename】</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="update"><a href="#update" class="headerlink" title="update"></a>update</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPDATE [LOW_PRIORITY] [IGNORE] tbl_name  </span><br><span class="line">SET col_name1=expr1 [, col_name2=expr2 ...]  </span><br><span class="line">[WHERE where_definition]  </span><br><span class="line">[ORDER BY ...]  </span><br><span class="line">[LIMIT row_count]</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="用户权限和远程连接"><a href="#用户权限和远程连接" class="headerlink" title="用户权限和远程连接"></a>用户权限和远程连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; USE mysql; -- 切换到 mysql DB</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT User, Password, Host FROM user; -- 查看现有用户,密码及允许连接的主机</span><br><span class="line"></span><br><span class="line">+------+----------+-----------+</span><br><span class="line">| User | Password | Host      |</span><br><span class="line">+------+----------+-----------+</span><br><span class="line">| root |          | localhost |</span><br><span class="line">+------+----------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">mysql&gt; -- 只有一个默认的 root 用户, 密码为空, 只允许 localhost 连接</span><br><span class="line">12</span><br><span class="line">mysql&gt; -- 下面我们另外添加一个新的 root 用户, 密码为空, 只允许 192.168.1.100 连接</span><br><span class="line"></span><br><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;192.168.1.100&apos; IDENTIFIED BY &apos;&apos; WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">mysql&gt; -- @&apos;192.168.1.100&apos;可以替换为@‘%’就可任意ip访问，当然我们也可以直接用 UPDATE 更新 root 用户 Host, 但不推荐, SQL如下:</span><br><span class="line"></span><br><span class="line">mysql&gt; -- UPDATE user SET Host=&apos;192.168.1.100&apos; WHERE User=&apos;root&apos; AND Host=&apos;localhost&apos; LIMIT 1;</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="http://www.cnblogs.com/jyginger/archive/2011/04/27/2030017.html" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/数据库/mysql/MySQL/" data-id="cjjedmhdb009o0gtjc35gg8ul" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/scala/箭头" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/scala/箭头/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/scala/箭头/">箭头</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>-&gt;</p>
+<p><a href="https://stackoverflow.com/questions/4980515/scala-maps-operator" target="_blank" rel="noopener">stackoverflow</a></p>
+<p>the -&gt; operator is a shorthand for associating a key with a value when used in the context of a map. In some languages, you are simply allowed to pass the pair of the key and value (usually with the key in the first position and the value in the second) to the constructor or one of the various methods on a map and it will be handled appropriately – this is also allowed with Scala maps.</p>
+<p>However, Scala also provides the shorthand form of key -&gt; value, which, as you’ve discovered, is defined in Predef via an implicit, to make the association more clear. Essentially it’s saying: “take the item on the left and map it to the item on the right.” You’ll notice if you read the definition of the Map object, that it does not define any methods that obviously use this -&gt; method. Instead, the methods take objects of type Tuple2 (this is a tuple of 2 values: e.g. (item1, item2)), which Scala implicity converts via the method in Predef.</p>
+<p>In some languages, the -&gt; syntax is defined as part of the language itself, but due to the flexibility of Scala, this is able to be defined simply as a method.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/scala/箭头/" data-id="cjjedmhd6009g0gtjdhjfd7zd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/scala/">scala</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/18/">18</a><a class="extend next" rel="next" href="/blog/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

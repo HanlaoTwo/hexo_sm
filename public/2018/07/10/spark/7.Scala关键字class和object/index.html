@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>7.Scala关键字class和object | 你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象和Java一样Scala面向对象  类是对象的模板、抽象。定义一个类后，可以使用关键字new来创建一个类的对象。 通过对象可以使用定义的类的所有功能。  classclass表示类和Java不同，class不能运行。虽然可以定义main方法，但是不能运行1234567891011class Point(xc: Int, yc: Int) &amp;#123;   var x: Int = xc">
+<meta name="keywords" content="spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7.Scala关键字class和object">
+<meta property="og:url" content="http://hanlaotwo.com/2018/07/10/spark/7.Scala关键字class和object/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="面向对象和Java一样Scala面向对象  类是对象的模板、抽象。定义一个类后，可以使用关键字new来创建一个类的对象。 通过对象可以使用定义的类的所有功能。  classclass表示类和Java不同，class不能运行。虽然可以定义main方法，但是不能运行1234567891011class Point(xc: Int, yc: Int) &amp;#123;   var x: Int = xc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-07-10T13:10:09.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7.Scala关键字class和object">
+<meta name="twitter:description" content="面向对象和Java一样Scala面向对象  类是对象的模板、抽象。定义一个类后，可以使用关键字new来创建一个类的对象。 通过对象可以使用定义的类的所有功能。  classclass表示类和Java不同，class不能运行。虽然可以定义main方法，但是不能运行1234567891011class Point(xc: Int, yc: Int) &amp;#123;   var x: Int = xc">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-spark/7.Scala关键字class和object" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/7.Scala关键字class和object/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      7.Scala关键字class和object
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3>和Java一样Scala面向对象</li>
+</ul>
+<p>类是对象的模板、抽象。定义一个类后，可以使用关键字new来创建一个类的对象。 通过对象可以使用定义的类的所有功能。</p>
+<ul>
+<li><h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3>class表示类<br>和Java不同，class不能运行。虽然可以定义main方法，但是不能运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Point(xc: Int, yc: Int) &#123;</span><br><span class="line">   var x: Int = xc</span><br><span class="line">   var y: Int = yc</span><br><span class="line"></span><br><span class="line">   def move(dx: Int, dy: Int) &#123;</span><br><span class="line">      x = x + dx</span><br><span class="line">      y = y + dy</span><br><span class="line">      println (&quot;Point x location : &quot; + x);</span><br><span class="line">      println (&quot;Point y location : &quot; + y);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>继承：在Scala中，我们可以扩展一个Scala类，使用与Java中相同的方式设计继承的类(使用extends关键字)，但有两个限制：方法重写需要override关键字，只有主构造函数可以通过参数调用基类构造函数。让我们扩展上面的类，并增加一个类的方法。</p>
+<ul>
+<li><h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3></li>
+</ul>
+<p>Scala单例对象是十分重要的，没有像在Java一样，有静态类、静态成员、静态方法，但是Scala提供了object对象，这个object对象类似于Java的静态类,它的成员、它的方法都默认是静态的。</p>
+<p>Scala它使用单例对象。单例是一种只能有一个实例的对象。使用object关键字对象而不是类关键字创建单例。由于无法实例化单例对象，因此无法将参数传递给主构造函数。下面列出Scala使用单例对象的所有示例。</p>
+<p>object 是可以运行的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Point(val xc: Int, val yc: Int) &#123;</span><br><span class="line">   var x: Int = xc</span><br><span class="line">   var y: Int = yc</span><br><span class="line"></span><br><span class="line">   def move(dx: Int, dy: Int) &#123;</span><br><span class="line">      x = x + dx</span><br><span class="line">      y = y + dy</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">object Demo &#123;</span><br><span class="line">   def main(args: Array[String]) &#123;</span><br><span class="line">      val point = new Point(10, 20)</span><br><span class="line">      printPoint</span><br><span class="line"></span><br><span class="line">      def printPoint&#123;</span><br><span class="line">         println (&quot;Point x location : &quot; + point.x);</span><br><span class="line">         println (&quot;Point y location : &quot; + point.y);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h3 id="单例对象和伴生对象"><a href="#单例对象和伴生对象" class="headerlink" title="单例对象和伴生对象"></a>单例对象和伴生对象</h3>如果有同样一个类与该object名字一样，则称该object为该类的伴生对象，相对应，该类为object的伴生类。如果一个类有它的伴生对象，这个类就可通过object的名字访问到所有成员，但object不在该类的作用范围。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class University&#123;</span><br><span class="line">val id = University.newStudentNo</span><br><span class="line">private var number = 0</span><br><span class="line">def aClass (number : Int)&#123;this.number += number&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">object University &#123;</span><br><span class="line">   private var studentNo = 0</span><br><span class="line">   def newStudentNo = &#123;</span><br><span class="line">   studentNo += 1</span><br><span class="line">   studentNo</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考自：</p>
+<p><a href="http://www.jianshu.com/p/538fd44137fd" target="_blank" rel="noopener">http://www.jianshu.com/p/538fd44137fd</a></p>
+<p><a href="http://www.runoob.com/scala/scala-basic-syntax.html" target="_blank" rel="noopener">http://www.runoob.com/scala/scala-basic-syntax.html</a></p>
+<p><a href="http://www.yiibai.com/scala/scala_classes_objects.html" target="_blank" rel="noopener">http://www.yiibai.com/scala/scala_classes_objects.html</a></p>
+<p><a href="http://www.cnblogs.com/-crazysnail/p/3984010.html" target="_blank" rel="noopener">http://www.cnblogs.com/-crazysnail/p/3984010.html</a></p>
+<p><a href="http://www.cnblogs.com/nethk/p/5609320.html" target="_blank" rel="noopener">http://www.cnblogs.com/nethk/p/5609320.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/7.Scala关键字class和object/" data-id="cjjedmhbz007u0gtj7wq0yzcq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/07/10/spark/5.spark程序提交集群和监控/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          5.spark程序提交集群和监控
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/07/10/spark/8.scala方法定义/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">8.scala方法定义</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

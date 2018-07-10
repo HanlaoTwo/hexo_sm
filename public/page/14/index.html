@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个码畜的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你才是程序员">
+<meta property="og:url" content="http://hanlaotwo.com/page/14/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="一个码畜的博客">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你才是程序员">
+<meta name="twitter:description" content="一个码畜的博客">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-spark/3.linux上运行spark程序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/3.linux上运行spark程序/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/3.linux上运行spark程序/">3.linux上运行spark程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://spark.apache.org/docs/latest/submitting-applications.html" target="_blank" rel="noopener">参考官网</a></p>
+<h3 id="spark-submit"><a href="#spark-submit" class="headerlink" title="spark-submit"></a>spark-submit</h3><p>在spark安装目录的bin目录下有一个spark-submit脚本，可以用来提交运行spark程序</p>
+<p>如果配置了spark的path可以直接使用spark-submit命令</p>
+<h3 id="编译构建spark程序"><a href="#编译构建spark程序" class="headerlink" title="编译构建spark程序"></a>编译构建spark程序</h3><p>使用sbt 或者maven构建程序生成jar包</p>
+<h3 id="spark-submit的使用"><a href="#spark-submit的使用" class="headerlink" title="spark-submit的使用"></a>spark-submit的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spark-submit \</span><br><span class="line">  --class &lt;main-class&gt; \</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --conf &lt;key&gt;=&lt;value&gt; \</span><br><span class="line">  ... # other options</span><br><span class="line">  &lt;application-jar&gt; \</span><br><span class="line">  [application-arguments]</span><br></pre></td></tr></table></figure>
+<p>–class: 要运行的jar包里的类，比如 test.spark.examples</p>
+<p>–master: master的地址 比如 spark://23.195.26.187:7077</p>
+<p>–deploy-mode: 部署模式</p>
+<p>–conf: 运行时的一些配置 “key=value”类型 </p>
+<p>application-jar: 要运行的jar包路径，可以是hdfs:// 开头或者 file:// 开头。比如：/root/program/spark/test.jar</p>
+<p>application-arguments: 要传给运行类主方法的参数，没有可以不传</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"># 本地运行，使用8个核心，传入参数100</span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class org.apache.spark.examples.SparkPi \</span><br><span class="line">  --master local[8] \</span><br><span class="line">  /path/to/examples.jar \</span><br><span class="line">  100</span><br><span class="line"></span><br><span class="line"># Run on a Spark standalone cluster in client deploy mode</span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class org.apache.spark.examples.SparkPi \</span><br><span class="line">  --master spark://207.184.161.138:7077 \</span><br><span class="line">  --executor-memory 20G \</span><br><span class="line">  --total-executor-cores 100 \</span><br><span class="line">  /path/to/examples.jar \</span><br><span class="line">  1000</span><br><span class="line"></span><br><span class="line"># Run on a Spark standalone cluster in cluster deploy mode with supervise</span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class org.apache.spark.examples.SparkPi \</span><br><span class="line">  --master spark://207.184.161.138:7077 \</span><br><span class="line">  --deploy-mode cluster \</span><br><span class="line">  --supervise \</span><br><span class="line">  --executor-memory 20G \</span><br><span class="line">  --total-executor-cores 100 \</span><br><span class="line">  /path/to/examples.jar \</span><br><span class="line">  1000</span><br><span class="line"></span><br><span class="line"># Run on a YARN cluster</span><br><span class="line">export HADOOP_CONF_DIR=XXX</span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class org.apache.spark.examples.SparkPi \</span><br><span class="line">  --master yarn \</span><br><span class="line">  --deploy-mode cluster \  # can be client for client mode</span><br><span class="line">  --executor-memory 20G \</span><br><span class="line">  --num-executors 50 \</span><br><span class="line">  /path/to/examples.jar \</span><br><span class="line">  1000</span><br><span class="line"></span><br><span class="line"># Run a Python application on a Spark standalone cluster</span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --master spark://207.184.161.138:7077 \</span><br><span class="line">  examples/src/main/python/pi.py \</span><br><span class="line">  1000</span><br><span class="line"></span><br><span class="line"># Run on a Mesos cluster in cluster deploy mode with supervise</span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class org.apache.spark.examples.SparkPi \</span><br><span class="line">  --master mesos://207.184.161.138:7077 \</span><br><span class="line">  --deploy-mode cluster \</span><br><span class="line">  --supervise \</span><br><span class="line">  --executor-memory 20G \</span><br><span class="line">  --total-executor-cores 100 \</span><br><span class="line">  http://path/to/examples.jar \</span><br><span class="line">  1000</span><br></pre></td></tr></table></figure>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p>程序：</p>
+<p>路径：</p>
+<p>/root/worspace/test-1.0.jar</p>
+<p>命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class SparkSQLExample --master local /root/worspace/test-1.0.jar</span><br></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p>部分输出如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">17/10/09 17:58:20 INFO DAGScheduler: ResultStage 9 (show at SparkSQLExample.scala:104) finished in 0.027 s</span><br><span class="line">17/10/09 17:58:20 INFO DAGScheduler: Job 7 finished: show at SparkSQLExample.scala:104, took 0.044894 s</span><br><span class="line">+--------------------+----+-------+</span><br><span class="line">|     _corrupt_record| age|   name|</span><br><span class="line">+--------------------+----+-------+</span><br><span class="line">|                null|null|Michael|</span><br><span class="line">|                null|  30|   Andy|</span><br><span class="line">|                null|  19| Justin|</span><br><span class="line">|spark-submit --cl...|null|   null|</span><br><span class="line">|                 100|null|   null|</span><br><span class="line">+--------------------+----+-------+</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/3.linux上运行spark程序/" data-id="cjjedmhbv007m0gtjddmuuvg8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/6.sparkRDDS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/6.sparkRDDS/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/6.sparkRDDS/">6.sparkRDDS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/6.sparkRDDS/" data-id="cjjedmhbx007p0gtjl3d97a55" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/5.spark程序提交集群和监控" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/5.spark程序提交集群和监控/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/5.spark程序提交集群和监控/">5.spark程序提交集群和监控</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h3><p>Spark 应用在集群上作为独立的进程组来运行，在 main 程序中通过 SparkContext 来协调（称之为 driver 程序）  </p>
+<p><img src="http://spark.apache.org/docs/latest/img/cluster-overview.png" alt="image"></p>
+<p>1.每个应用获取到它自己的 Executor 进程，它们会保持在整个应用的生命周期中并且在多个线程中运行 Task（任务）。这样做的优点是把应用互相隔离，在调度方面（每个 driver 调度它自己的 task）和 Executor 方面（来自不同应用的 task 运行在不同的 JVM 中）。然而，这也意味着若是不把数据写到外部的存储系统中的话，数据就不能够被不同的 Spark 应用（SparkContext 的实例）之间共享。</p>
+<p>2.Spark 是不知道底层的 Cluster Manager 到底是什么类型的。只要它能够获得 Executor 进程，并且它们可以和彼此之间通信，那么即使是在一个也支持其它应用的 Cluster Manager（例如，Mesos / YARN）上来运行它也是相对简单的。</p>
+<p>3.Driver 程序必须在自己的生命周期内（例如，请看 在网络中配置 spark.driver.port 章节）监听和接受来自它的 Executor 的连接请求。同样的，driver 程序必须可以从 worker 节点上网络寻址（就是网络没问题）。</p>
+<p>4.因为 driver 调度了集群上的 task（任务），更好的方式应该是在相同的局域网中靠近 worker 的节点上运行。如果您不喜欢发送请求到远程的集群，倒不如打开一个 RPC 至 driver 并让它就近提交操作而不是从很远的 worker 节点上运行一个 driver。</p>
+<h3 id="集群类型"><a href="#集群类型" class="headerlink" title="集群类型"></a>集群类型</h3><p>1.Standalone – 包含在 Spark 中使得它更容易来安装集群的一个简单的 Cluster Manager。</p>
+<p>2.Mesos – 一个通用的 Cluster Manager，它也可以运行 Hadoop MapReduce 和其它服务应用。</p>
+<p>3.Hadoop YARN – Hadoop 2 中的 resource manager（资源管理器）。</p>
+<h3 id="Standalone"><a href="#Standalone" class="headerlink" title="Standalone"></a>Standalone</h3><h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>启动集群：</p>
+<p>spark根目录下</p>
+<pre><code>./sbin/start-master.sh
+</code></pre><p>启动之后可以在ip:8080上访问集群信息</p>
+<p>运行程序<br>spark submit命令可以启动程序</p>
+<pre><code>spark-submit --class SparkSQLExample --master spark://ip:port /root/worspace/test-1.0.jar
+</code></pre><h4 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h4><p>Spark 的独立模式提供了一个基于 Web 的用户界面来监控集群。Master 和 每个 Worker 都有自己的 web 用户界面，显示集群和作业统计信息。默认情况下你可以在 8080 端口访问 Web UI 的主端口也可以在配置文件中或通过命令行选项进行更改。</p>
+<p>在程序运行的时候可以在ip:4040监控运行状态</p>
+<h3 id="Hadoop-YARN"><a href="#Hadoop-YARN" class="headerlink" title="Hadoop YARN"></a>Hadoop YARN</h3><h4 id="部署-1"><a href="#部署-1" class="headerlink" title="部署"></a>部署</h4><p>配置HADOOP_CONF_DIR<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile </span><br><span class="line">#添加</span><br><span class="line">HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop  </span><br><span class="line">cd $SPARK_HOME/conf</span><br><span class="line">vim spark-env.sh </span><br><span class="line">#添加</span><br><span class="line">HADOOP_CONF_DIR=$HADOOP_CONF_DIR</span><br><span class="line">#启动hadoop</span><br><span class="line">cd $HADOOP_HOME/sbin  </span><br><span class="line">./start-all.sh</span><br><span class="line">#新建日志目录</span><br><span class="line">mkdir /root/logs</span><br><span class="line">#启动历史信息记录服务</span><br><span class="line">cd $SPARK_HOME/sbin</span><br><span class="line">./sbin/start-history-server.sh /root/logs</span><br><span class="line">#启动应用</span><br><span class="line">./bin/spark-submit --class SparkSQLExample --master yarn --deploy-mode cluster  /root/worspace/test-1.0.jar</span><br><span class="line">#如果有参数，参数放在最后</span><br></pre></td></tr></table></figure></p>
+<h4 id="监控-1"><a href="#监控-1" class="headerlink" title="监控"></a>监控</h4><p>配置日志目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HIME/conf</span><br><span class="line">vim spark-defaults.conf</span><br><span class="line">#添加</span><br><span class="line">spark.eventLog.enabled           true</span><br><span class="line"> spark.eventLog.dir               /root/logs/spark</span><br><span class="line"> spark.history.fs.logDirectory    /root/logs/spark</span><br></pre></td></tr></table></figure></p>
+<p>日志目录可以是本地目录也可以hdfs目录</p>
+<p>监控地址<br>运行时：</p>
+<p>ip:4040(spark)</p>
+<p>ip:8088（hadoop）</p>
+<p>ip:18080(spark历史)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/5.spark程序提交集群和监控/" data-id="cjjedmhby007r0gtj7uhf0svr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/7.Scala关键字class和object" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/7.Scala关键字class和object/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/7.Scala关键字class和object/">7.Scala关键字class和object</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3>和Java一样Scala面向对象</li>
+</ul>
+<p>类是对象的模板、抽象。定义一个类后，可以使用关键字new来创建一个类的对象。 通过对象可以使用定义的类的所有功能。</p>
+<ul>
+<li><h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3>class表示类<br>和Java不同，class不能运行。虽然可以定义main方法，但是不能运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Point(xc: Int, yc: Int) &#123;</span><br><span class="line">   var x: Int = xc</span><br><span class="line">   var y: Int = yc</span><br><span class="line"></span><br><span class="line">   def move(dx: Int, dy: Int) &#123;</span><br><span class="line">      x = x + dx</span><br><span class="line">      y = y + dy</span><br><span class="line">      println (&quot;Point x location : &quot; + x);</span><br><span class="line">      println (&quot;Point y location : &quot; + y);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>继承：在Scala中，我们可以扩展一个Scala类，使用与Java中相同的方式设计继承的类(使用extends关键字)，但有两个限制：方法重写需要override关键字，只有主构造函数可以通过参数调用基类构造函数。让我们扩展上面的类，并增加一个类的方法。</p>
+<ul>
+<li><h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3></li>
+</ul>
+<p>Scala单例对象是十分重要的，没有像在Java一样，有静态类、静态成员、静态方法，但是Scala提供了object对象，这个object对象类似于Java的静态类,它的成员、它的方法都默认是静态的。</p>
+<p>Scala它使用单例对象。单例是一种只能有一个实例的对象。使用object关键字对象而不是类关键字创建单例。由于无法实例化单例对象，因此无法将参数传递给主构造函数。下面列出Scala使用单例对象的所有示例。</p>
+<p>object 是可以运行的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Point(val xc: Int, val yc: Int) &#123;</span><br><span class="line">   var x: Int = xc</span><br><span class="line">   var y: Int = yc</span><br><span class="line"></span><br><span class="line">   def move(dx: Int, dy: Int) &#123;</span><br><span class="line">      x = x + dx</span><br><span class="line">      y = y + dy</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">object Demo &#123;</span><br><span class="line">   def main(args: Array[String]) &#123;</span><br><span class="line">      val point = new Point(10, 20)</span><br><span class="line">      printPoint</span><br><span class="line"></span><br><span class="line">      def printPoint&#123;</span><br><span class="line">         println (&quot;Point x location : &quot; + point.x);</span><br><span class="line">         println (&quot;Point y location : &quot; + point.y);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h3 id="单例对象和伴生对象"><a href="#单例对象和伴生对象" class="headerlink" title="单例对象和伴生对象"></a>单例对象和伴生对象</h3>如果有同样一个类与该object名字一样，则称该object为该类的伴生对象，相对应，该类为object的伴生类。如果一个类有它的伴生对象，这个类就可通过object的名字访问到所有成员，但object不在该类的作用范围。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class University&#123;</span><br><span class="line">val id = University.newStudentNo</span><br><span class="line">private var number = 0</span><br><span class="line">def aClass (number : Int)&#123;this.number += number&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">object University &#123;</span><br><span class="line">   private var studentNo = 0</span><br><span class="line">   def newStudentNo = &#123;</span><br><span class="line">   studentNo += 1</span><br><span class="line">   studentNo</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考自：</p>
+<p><a href="http://www.jianshu.com/p/538fd44137fd" target="_blank" rel="noopener">http://www.jianshu.com/p/538fd44137fd</a></p>
+<p><a href="http://www.runoob.com/scala/scala-basic-syntax.html" target="_blank" rel="noopener">http://www.runoob.com/scala/scala-basic-syntax.html</a></p>
+<p><a href="http://www.yiibai.com/scala/scala_classes_objects.html" target="_blank" rel="noopener">http://www.yiibai.com/scala/scala_classes_objects.html</a></p>
+<p><a href="http://www.cnblogs.com/-crazysnail/p/3984010.html" target="_blank" rel="noopener">http://www.cnblogs.com/-crazysnail/p/3984010.html</a></p>
+<p><a href="http://www.cnblogs.com/nethk/p/5609320.html" target="_blank" rel="noopener">http://www.cnblogs.com/nethk/p/5609320.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/7.Scala关键字class和object/" data-id="cjjedmhbz007u0gtj7wq0yzcq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/8.scala方法定义" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/8.scala方法定义/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/8.scala方法定义/">8.scala方法定义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>形式：</p>
+<pre><code>def functionName ([list of parameters]) : [return type]
+</code></pre><p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    object add &#123;</span><br><span class="line">   def addInt( a:Int, b:Int ) : Int = &#123;</span><br><span class="line">      var sum:Int = 0</span><br><span class="line">      sum = a + b</span><br><span class="line">      return sum</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>数据类型</p>
+<table>
+<thead>
+<tr>
+<th>header 1</th>
+<th>header 2</th>
+<th>sadas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Byte</td>
+<td>8位有符号值，范围从-128至127</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Short</td>
+<td>16位有符号值，范围从-32768至32767</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Int</td>
+<td>32位有符号值，范围从-2147483648至2147483647</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Long</td>
+<td>64位有符号值，范围从-9223372036854775808至9223372036854775807</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Float</td>
+<td>32位IEEE 754单精度浮点值</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Double</td>
+<td>64位IEEE 754双精度浮点值</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Char</td>
+<td>16位无符号Unicode字符。范围从U+0000到U+FFFF</td>
+</tr>
+<tr>
+<td>8</td>
+<td>String</td>
+<td>一个Char类型序列</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Boolean</td>
+<td>文字值true或文字值false</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Unit</td>
+<td>对应于无值</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Null</td>
+<td>null或空引用</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Nothing</td>
+<td>每种其他类型的亚型; 不包括无值</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Any</td>
+<td>任何类型的超类型; 任何对象的类型为Any</td>
+</tr>
+<tr>
+<td>14</td>
+<td>AnyRef</td>
+<td>任何引用类型的超类型</td>
+</tr>
+</tbody>
+</table>
+<p>一个不返回任何东西的函数可以返回一个类似在Java中的void类型，并表示该函数不返回任何内容。 在Scala中不返回任何东西的函数称为过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">object Hello&#123;</span><br><span class="line">   def printMe( ) : Unit = &#123;</span><br><span class="line">      println(&quot;Hello, Scala!&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/8.scala方法定义/" data-id="cjjedmhc1007w0gtjsghwbi89" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/9.JavaScript，Scala，spark中的闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/9.JavaScript，Scala，spark中的闭包/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/9.JavaScript，Scala，spark中的闭包/">9.JavaScript，Scala，spark中的闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="JavaScript的闭包"><a href="#JavaScript的闭包" class="headerlink" title="JavaScript的闭包"></a>JavaScript的闭包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    var hello=&quot;hello,world&quot;;</span><br><span class="line">    function welcome(hi)&#123;</span><br><span class="line">        alert(hi);        //解析到作用域链的第一个对象的属性</span><br><span class="line">        alert(hello);    //解析到作用域链的第二个对象的属性</span><br><span class="line">    &#125;</span><br><span class="line">    welcome(&quot;It&apos;s easy&quot;);</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">作者：知乎用户</span><br><span class="line">链接：https://www.zhihu.com/question/34547104/answer/59515735</span><br><span class="line">来源：知乎</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+<p>每次定义一个函数，都会产生一个作用域链（scope chain）。当JavaScript寻找变量varible时（这个过程称为变量解析），总会优先在当前作用域链的第一个对象中查找属性varible，如果找到，则直接使用这个属性；否则，继续查找下一个对象的是否存在这个属性；这个过程会持续直至找到这个属性或者最终未找到引发错误为止</p>
+<h4 id="scala闭包"><a href="#scala闭包" class="headerlink" title="scala闭包"></a>scala闭包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">object Closure &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val c = add(1)</span><br><span class="line">    println(c)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  val b = 10</span><br><span class="line">  val add = (a: Int) =&gt; &#123;</span><br><span class="line">    b - a</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>闭包是一个函数，它返回值取决于在此函数之外声明的一个或多个变量的值。</p>
+<h4 id="spark中的闭包"><a href="#spark中的闭包" class="headerlink" title="spark中的闭包"></a>spark中的闭包</h4><p>在集群中执行代码时，一个关于 Spark 更难的事情是理解的变量和方法的范围和生命周期。</p>
+<p>修改其范围之外的变量 RDD 操作可以混淆的常见原因。在下面的例子中，我们将看一下使用的 foreach() 代码递增累加计数器，但类似的问题，也可能会出现其他操作上。</p>
+<p>示例<br>考虑一个简单的 RDD 元素求和，以下行为可能不同，具体取决于是否在同一个 JVM 中执行。<br>一个常见的例子是当 Spark 运行在本地模式（–master = local[n]）时，与部署 Spark 应用到群集（例如，通过 spark-submit 到 YARN）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var counter = 0</span><br><span class="line">var rdd = sc.parallelize(data)</span><br><span class="line"> </span><br><span class="line">// Wrong: Don&apos;t do this!!</span><br><span class="line">rdd.foreach(x =&gt; counter += x)</span><br><span class="line"> </span><br><span class="line">println(&quot;Counter value: &quot; + counter)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/9.JavaScript，Scala，spark中的闭包/" data-id="cjjedmhc2007y0gtjdnjtww6i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spark/SparkStream例子HdfsWordCount" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/spark/SparkStream例子HdfsWordCount/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/spark/SparkStream例子HdfsWordCount/">SparkStream例子HdfsWordCount</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="spark-github上的例子"><a href="#spark-github上的例子" class="headerlink" title="spark github上的例子"></a>spark github上的例子</h4><h4 id="程序描述"><a href="#程序描述" class="headerlink" title="程序描述"></a>程序描述</h4><p> 计算给定目录下的新文件的单词个数</p>
+<p> 运行的时候在hdfs上设置一个目录</p>
+<p> 然后实时的往目录里放文件</p>
+<p> 程序可以文件中单词的个数</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package stream</span><br><span class="line"></span><br><span class="line">import org.apache.spark.SparkConf</span><br><span class="line">import org.apache.spark.streaming.&#123;Seconds, StreamingContext&#125;</span><br><span class="line"></span><br><span class="line">object HdfsWordCount &#123;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]) &#123;</span><br><span class="line">    //val args = Array(&quot;D:\\workspace\\idea\\spark-test\\data&quot;)//z这里是目录不是文件</span><br><span class="line">    if (args.length &lt; 1) &#123;</span><br><span class="line">      System.err.println(&quot;Usage: HdfsWordCount &lt;directory&gt;&quot;)</span><br><span class="line">      System.exit(1)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    StreamingExamples.setStreamingLogLevels()</span><br><span class="line">    val sparkConf = new SparkConf().setAppName(&quot;sadsadas&quot;).setMaster(&quot;local&quot;)</span><br><span class="line">    </span><br><span class="line">    // 初始化</span><br><span class="line">    val ssc = new StreamingContext(sparkConf, Seconds(10))</span><br><span class="line">    </span><br><span class="line">    // 创建输入流，然后计算新文件的单词个数</span><br><span class="line">    val lines = ssc.textFileStream(args(0))</span><br><span class="line">    val words = lines.flatMap(_.split(&quot; &quot;))</span><br><span class="line">    val wordCounts = words.map(x =&gt; (x, 1)).reduceByKey(_ + _)</span><br><span class="line">    </span><br><span class="line">    //输出计算结果</span><br><span class="line">    wordCounts.print()</span><br><span class="line">    </span><br><span class="line">    ssc.start()</span><br><span class="line">    ssc.awaitTermination()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// scalastyle:on println</span><br></pre></td></tr></table></figure>
+<h4 id="打包运行"><a href="#打包运行" class="headerlink" title="打包运行"></a>打包运行</h4><p>mvn install </p>
+<p>程序包：<br>test-1.0.jar</p>
+<p>程序主类：<br>stream.HdfsWordCount</p>
+<p>参数:<br>hdfs上的目录</p>
+<p>input</p>
+<p>命令：</p>
+<pre><code>spark-submit --class stream.HdfsWordCount --master yarn --deploy-mode cluster  test-1.0.jar input
+</code></pre><h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p> 向hdfs的目录中放入新文件,文件hello.txt</p>
+<pre><code>hadoop fs -put hello.text input
+</code></pre><p> 运行结果</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> -------------------------------------------</span><br><span class="line">Time: 1513337720000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(input/pretreatment,1)</span><br><span class="line">(Found,1)</span><br><span class="line">(drwxr-xr-x,3)</span><br><span class="line">(0,3)</span><br><span class="line">(input/tables,1)</span><br><span class="line">(11:16,2)</span><br><span class="line">(,33)</span><br><span class="line">(3,1)</span><br><span class="line">(2017-12-04,2)</span><br><span class="line">(-,3)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/spark/SparkStream例子HdfsWordCount/" data-id="cjjedmhc400800gtjlzbqnxny" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/Spring配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/web/Spring配置/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/web/Spring配置/">Spring配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://blog.csdn.net/evankaka/article/details/45647031" target="_blank" rel="noopener">http://blog.csdn.net/evankaka/article/details/45647031</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/web/Spring配置/" data-id="cjjedmhc500820gtjahcb7v1d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/web/">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/tomcat远程登录manager配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/web/tomcat远程登录manager配置/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/web/tomcat远程登录manager配置/">tomcat远程登录manager配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h4><p>  vim vim conf/tomcat-users.xml</p>
+</li>
+</ul>
+<p>修改文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;role rolename=&quot;tomcat&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;role1&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;000000&quot; roles=&quot;tomcat&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;both&quot; password=&quot;000000&quot; roles=&quot;tomcat,role1&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;role1&quot; password=&quot;000000&quot; roles=&quot;role1&quot;/&gt;</span><br><span class="line">&lt;!-- 上边是原来的，取消注释要修改password，也可以不取消注释 --&gt;</span><br><span class="line">&lt;role rolename=&quot;manager&quot;/&gt;　</span><br><span class="line">&lt;role rolename=&quot;manager-gui&quot;/&gt;　</span><br><span class="line">&lt;role rolename=&quot;admin&quot;/&gt;　</span><br><span class="line">&lt;role rolename=&quot;admin-gui&quot;/&gt;　</span><br><span class="line">&lt;role rolename=&quot;manager-script&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;hello&quot; password=&quot;000000&quot; roles=&quot;admin-gui,admin,manager-gui,manager,manager-script&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="增加权限"><a href="#增加权限" class="headerlink" title="增加权限"></a>增加权限</h4>在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conf/Catalina/localhost</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>目录下新建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">manager.xml</span><br></pre></td></tr></table></figure></p>
+<p>文件</p>
+<pre><code>vim manager.xml
+</code></pre><p>文件内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    &lt;Context privileged=&quot;true&quot; antiResourceLocking=&quot;false&quot; docBase=&quot;$&#123;catalina.home&#125;/webapps/manager&quot;&gt;</span><br><span class="line">        &lt;Valve className=&quot;org.apache.catalina.valves.RemoteAddrValve&quot; allow=&quot;^.*$&quot; /&gt;</span><br><span class="line">&lt;/Context&gt;</span><br></pre></td></tr></table></figure></p>
+<p>重启tomcat</p>
+<p>然后打开ip/manager/html</p>
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello</span><br><span class="line">000000</span><br></pre></td></tr></table></figure>
+<p>登录</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/web/tomcat远程登录manager配置/" data-id="cjjedmhcc008b0gtjsm5i56un" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/web/">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-work/sql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/work/sql/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/work/sql/">sql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>`</code></p>
+<p>SELECT<br>  a.acpt_category_no,<br>  a.acpt_category_name,<br>  c.param_id,<br>  c.param_name,<br>  b.need_flag,<br>  b.organ_flag,<br>  b.prof_flag,<br>  b.prof_type,<br>  b.data_type,<br>  b.int_config,<br>  b.str_config<br>FROM hs_acpt.bopcategory a, hs_acpt.bopbusintypequaliarg b, hs_acpt.bopqualiarg c<br>WHERE a.acpt_category_no = b.acpt_busin_type AND b.param_id = c.param_id AND a.acpt_category_level = 2 AND<br>      b.need_flag = 1  AND a.acpt_category_no = ‘0044’–= ‘0252’ AND c.param_id<br>                                              IN<br>                          (‘0116’, ‘0018’, ‘0019’, ‘0027’, ‘0028’, ‘0041’, ‘0044’, ‘0045’, ‘0046’, ‘0053’, ‘0065’,<br>                            ‘0066’, ‘0116’, ‘0119’, ‘0122’, ‘0134’, ‘0168’, ‘0169’, ‘0172’, ‘0174’, ‘0177’, ‘0179’,<br>                           ‘0189’, ‘1002’, ‘1003’, ‘1004’,’0252’);</p>
+<p>select * from hs_acpt.bopbusintypequaliarg  WHERE acpt_busin_type  = 0018;</p>
+<p>INSERT INTO hs_acpt.bopbusintypequaliarg<br>(ACPT_BUSIN_TYPE, ORGAN_FLAG, PARAM_ID, DATA_TYPE, INT_CONFIG, STR_CONFIG, MODIFY_ABLE, NEED_FLAG, SHOW_TITLE, ORDER_NO, PROF_FLAG, PROF_TYPE)<br>VALUES (‘0018’, ‘0’, 24, ‘1’, 50, ‘1111111111111,20’, ‘1’, ‘1’, ‘ ‘, 7, ‘0’, ‘!’);<br>– 用户参数<br>SELECT t.ORGAN_FLAG,p.prof_flag,p.prof_type FROM CLIENTPREFER p,CLIENT t WHERE p.CLIENT_ID = t.CLIENT_ID AND t.CLIENT_ID = ‘IO20170101011’;</p>
+<p>select a.client_id,a.fund_account,a.asset_prop,t.init_date,t.money_type,<br>  d.fin_close_balance + d.slo_close_balance + d.fare_close_debit + d.fin_close_interest+ d.slo_close_interest + d.fin_close_fine_interest + d.slo_close_fine_interest+ d.other_close_interest + d.other_close_debit + d.other_close_fine_interest + d.refcost_close_fare as total_debit,<br>                                   t.fund_asset<br>                                   +t.secu_market_value<br>                                   +t.opfund_market_value<br>                                   +t.opt_market_value<br>                                   –+t.total_debit<br>                                   +t.prod_market_value<br>                                   +t.hkfund_market_value<br>                                   +t.ofcash_market_value<br>                                  +t.pfund_market_value<br>                                   +t.secum_market_value<br>                                as totalasset<br>from hs_his.his_asset t, hs_asset.fundaccount a,hs_data.assetdebit d<br>where a.fund_account=t.fund_account<br>  and a.fund_account = d.fund_account<br>  and t.init_date = d.init_date<br>  and t.money_type = d.money_type<br>  –and t.init_date = ‘20170104’<br>  and a.client_id like ‘IT20170101004%’;</p>
+<p>SELECT CLIENT_ID,ORGAN_FLAG,PROF_FLAG,PROF_TYPE from CLIENTPREFER WHERE CLIENT_ID = ‘IT20170101001’;<br>UPDATE  client set ORGAN_FLAG=’0’  WHERE CLIENT_ID = ‘IO20170101005’</p>
+<p>select * from  hs_acpt.bopbusintypequaliarg<br>UPDATE hs_acpt.bopbusintypequaliarg SET prof_flag = ‘1’ WHERE acpt_busin_type=’0044’ and param_id = 53<br>select ORGAN_FLAG from client where client_id=’IT20170101001’<br>select prof_flag from CLIENTPREFER where client_id=’IT20170101001’<br>– 业务<br>SELECT a.acpt_category_no,a.acpt_category_name,c.param_id,c.param_name,b.need_flag,b.organ_flag,b.prof_flag,b.prof_type,b.data_type,b.int_config,b.str_config<br>FROM hs_acpt.bopcategory a, hs_acpt.bopbusintypequaliarg b, hs_acpt.bopqualiarg c,CLIENTPREFER p,CLIENT t<br>WHERE a.acpt_category_no = b.acpt_busin_type AND b.param_id = c.param_id AND a.acpt_category_level = 2 AND b.need_flag = 1<br>     AND t.ORGAN_FLAG = b.organ_flag and p.prof_flag= b.prof_flag<br>      AND a.acpt_category_no = ‘0044’ –AND c.param_id in (50,51,52,53,54,55,56,57,58,60)<br>      and p.CLIENT_ID = t.CLIENT_ID<br>      AND t.CLIENT_ID = ‘IT20170101004’<br>ORDER BY param_id;<br>– 负债<br>SELECT fin_close_balance ,slo_close_balance , fare_close_debit , fin_close_interest, slo_close_interest , fin_close_fine_interest , slo_close_fine_interest, other_close_interest , other_close_debit , other_close_fine_interest, refcost_close_fare from hs_data.ASSETDEBIT WHERE CLIENT_ID = ‘IO20170101026’ AND INIT_DATE = ‘20170105’;</p>
+<p>SELECT * from BUSINESSACCEPT WHERE ACPT_CATEGORY_NO = ‘0252’;<br>  –CLIENT_ID LIKE ‘IT20170101001%’ and<br>  –PARAM_VALUE like ‘%#58#%’;</p>
+<p>– p50 p51 p52<br>SELECT CLIENT_ID,CLIENT_INCOME_TYPE as p50,THREE_YEARS_AVG_INCOM as p51,LAST_YEAR_NET_ASSET as p52 from CLIENTPREFER WHERE CLIENT_ID = ‘IT20170101004’;<br>– p53<br>SELECT c.CLIENT_ID from CLIENT c,hs_crdt.riskacctlist r WHERE r.id_kind = c.id_kind and r.id_no = c.id_no AND r.client_name = c.FULL_NAME and r.riskaccount_type = ‘0’;<br>– p54<br>SELECT o.CLIENT_ID from FUNDACCOUNT f ,OPTBLACKACCT o ,CLIENT c WHERE c.CLIENT_ID = o.CLIENT_ID AND f.ASSET_PROP = ‘B’ AND f.FUND_ACCOUNT= o.FUND_ACCOUNT;<br>– 55,56,57,58,60<br>SELECT CLIENT_ID,CORP_RISK_LEVEL as p55,EN_INVEST_TERM as p56,EN_INVEST_KIND as p57,CLIENT_INCOME_TYPE as p58,EN_MAXDEFICIT_RATE as p60 from CLIENTPREFER WHERE CLIENT_ID = ‘IT20170101004’;</p>
+<p>SELECT h.fund_account,h.init_date,SECU_MARKET_VALUE from hs_his.his_asset h,FUNDACCOUNT f WHERE f.FUND_ACCOUNT=h.fund_account and f.CLIENT_ID = ‘IT20170101024’;</p>
+<p>SELECT <em> from FUNDACCOUNT WHERE FUND_ACCOUNT = ‘IT20170101004’;<br>UPDATE FUNDACCOUNT SET ASSET_PROP = ‘B’ WHERE FUND_ACCOUNT = ‘IT20170101004’;<br>UPDATE FUNDACCOUNT SET ASSET_PROP = ‘B’ WHERE FUND_ACCOUNT = ‘IT20170101006’;<br>UPDATE FUNDACCOUNT SET ASSET_PROP = ‘B’ WHERE FUND_ACCOUNT = ‘IO20170101004’;<br>UPDATE CLIENTPREFER SET CLIENT_INCOME_TYPE = ‘2’ WHERE CLIENT_ID = ‘IT20170101001’;<br>SELECT </em> from CLIENT WHERE id_no = ‘510212196801081335’;<br>SELECT client_name,CLIENT_id,id_no,id_kind,riskaccount_type from hs_crdt.riskacctlist;<br>UPDATE CLIENT SET FULL_NAME = ‘王斌’ WHERE CLIENT_ID = ‘IT20170101001’;<br>UPDATE hs_crdt.riskacctlist set riskaccount_type = ‘0’;<br>UPDATE CLIENTPREFER SET CLIENT_INCOME_TYPE = ‘2’ WHERE CLIENT_ID LIKE ‘IO%’;<br>SELECT CLIENT_INCOME_TYPE,CLIENT_ID from CLIENTPREFER WHERE CLIENT_ID LIKE ‘IO%’;<br>COMMIT;</p>
+<p>select st.client_id,ss.stock_account from hs_asset.sstrestradeacct ss ,HS_ASSET.STOCKHOLDER st WHERE ss.STOCK_ACCOUNT =st.STOCK_ACCOUNT ;<br>UPDATE CLIENTPREFER SET PROF_FLAG = ‘0’,PROF_TYPE=’!’WHERE CLIENT_ID = ‘IO20170101005’;</p>
+<p>select a.client_id,t.init_date,t.secum_market_value<br>from hs_his.his_asset t<br>join hs_asset.fundaccount a on a.fund_account=t.fund_account where t.init_date=’20170105’ and a.client_id =’IT20170101024’;</p>
+<p>SELECT h.fund_account,h.init_date,SECU_MARKET_VALUE from hs_his.his_asset h,FUNDACCOUNT f<br>WHERE f.FUND_ACCOUNT=h.fund_account and f.CLIENT_ID = ‘IT20170101024’;</p>
+<p>SELECT * from BUSINESSACCEPT WHERE PRE_ANALYSIS_TYPE = 2;–WHERE CLIENT_ID like ‘IT%’ AND ACPT_CATEGORY_NO = 0053;</p>
+<p>SELECT * from hs_user.SYSDICTIONARY WHERE DICT_ENTRY = 2505;</p>
+<p>SELECT * from FUNDACCOUNT WHERE asset_prop = 7;</p>
+<p>SELECT * from BUSINESSACCEPT WHERE ACPT_CATEGORY_NO = ‘0018’<br>select a.en_prodrisk_level,ORGAN_FLAG  from  eligriskmatch a<br>where a.finance_type = 1</p>
+<pre><code>and a.corp_risk_level = 2;
+</code></pre><p>select a.en_prodrisk_level  from  eligriskmatch a<br>where a.finance_type = 1<br>and a.organ_flag = 1<br>and a.corp_risk_level = 2;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/work/sql/" data-id="cjjedmhcd008c0gtjz3flh66x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/work/">work</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/13/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/12/">12</a><a class="page-number" href="/blog/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/blog/page/15/">15</a><a class="page-number" href="/blog/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/18/">18</a><a class="extend next" rel="next" href="/blog/page/15/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

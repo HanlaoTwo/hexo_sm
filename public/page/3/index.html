@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个码畜的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你才是程序员">
+<meta property="og:url" content="http://hanlaotwo.com/page/3/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="一个码畜的博客">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你才是程序员">
+<meta name="twitter:description" content="一个码畜的博客">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-项目/实时账户分析安装部署手册" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/项目/实时账户分析安装部署手册/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/项目/实时账户分析安装部署手册/">实时账户分析安装部署手册</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实时账户分析安装部署手册"><a href="#实时账户分析安装部署手册" class="headerlink" title="实时账户分析安装部署手册"></a>实时账户分析安装部署手册</h1><h2 id="安装说明-实时账户分析-V1-0-1"><a href="#安装说明-实时账户分析-V1-0-1" class="headerlink" title="@[安装说明, 实时账户分析, V1.0.1] "></a>@[安装说明, 实时账户分析, V1.0.1] </h2><p>[TOC]</p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>完成账户分析离线计算大数据环境</p>
+<hr>
+<h2 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h2><h3 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h3><p>从安装包中获取rt.tar.gz,并解压<br><code># tar -zxf rt.tar.gz</code><br>解压后在目录有如下文件</p>
+<p>conf.tar.gz  （redis集群master-slave和HA配置文件）<br>json（集群配置信息）<br>jstorm.tar.gz （jstorm安装文件）<br>kafka_2.11-0.9.0.1.tgz（kafka安装文件）<br>redis-4.0.1.tar.gz（redis安装文件）<br>rtConfig-0.0.1-SNAPSHOT.jar（集群配置程序）<br>startCluster.sh（集群配置脚本）</p>
+<h3 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h3><p>根据集群情况修改json文件<br>{<br>    “basePath”: “/opt/rt”,<br>    “hosts”: “hs01,hs02,hs03”,<br>    “nimbus.host”: “10.20.23.51”,<br>    “redis.host”: “10.20.23.51”,<br>    “zookeeper”: “hs01:2181,hs02:2181,hs03:2181”<br>}<br>其中：<br>basePath    实时计算环境安装的基础目录，kafka、jstorm和redis都会安装在该目录下<br>hosts    安装kafka、jstorm集群的节点<br>redis.host    安装redis集群的节点（只能写ip）<br>zookeeper    集群使用的zookeeper节点（在离线计算环境安装时已部署）<br>nimbus.host    jstorm的nimbus节点（只能写ip）</p>
+<p>确认执行脚本的用户在basePath有读写权限。</p>
+<h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><p>运行startCluster.sh  </p>
+<p><code>./startCluster.sh</code></p>
+<hr>
+<h2 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h2><h3 id="kafka"><a href="#kafka" class="headerlink" title="kafka"></a>kafka</h3><p>在各个节点上启动kafka服务(节点对应json文件中hosts)<br>切换到kafka安装目录下<br><code>bin/kafka-server-start.sh -daemon config/server.properties</code><br>创建topic，指定分区数，复制因子，topic的名称，创建名字为accouont，一个分区，一个副本的topic，并查看topic的状态(zookeeper对应json文件中zookeeper)<br><code>bin/kafka-topics.sh --create --zookeeper hs01:2181,hs02:2181,hs03:2181 --replication-factor 1 --partitions 1 --topic account</code></p>
+<p>查看topic状态<br><code>bin/kafka-topics.sh --describe --zookeeper hs01:2181,hs02:2181,hs03:2181 --topic account</code></p>
+<h3 id="jstorm"><a href="#jstorm" class="headerlink" title="jstorm"></a>jstorm</h3><p>在各个节点上启动jstorm服务(节点对应json文件中hosts)<br>切换到jstorm的安装目录bin文件夹下<br><code>./start.sh</code></p>
+<h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><p>在redis的节点中启动服务（redis节点对应json文件中的redis.host）<br>切换到redis的安装目录下<br><code>src/redis-server conf/redis_master_6379.conf</code><br><code>src/redis-server conf/redis_slave_6377.conf</code><br><code>src/redis-server conf/redis_slave_6378.conf</code><br><code>src/redis-sentinel conf/sentinel_63791.conf</code><br><code>src/redis-sentinel conf/sentinel_63792.conf</code></p>
+<hr>
+<h2 id="实时账户分析应用启动"><a href="#实时账户分析应用启动" class="headerlink" title="实时账户分析应用启动"></a>实时账户分析应用启动</h2><h3 id="步骤一-1"><a href="#步骤一-1" class="headerlink" title="步骤一"></a>步骤一</h3><p>修改files目录下redis.properties和dataSource.properties文件，包含redis集群的配置信息和关系数据库配置信息。</p>
+<p>运行<code>./updateJarConfig.sh</code></p>
+<h3 id="步骤二-1"><a href="#步骤二-1" class="headerlink" title="步骤二"></a>步骤二</h3><p>提交实时计算到jstorm集群中   </p>
+<p>1、业务准入<br>jstorm jar hs-rt-account-0.0.1-SNAPSHOT.jar com.hundsun.account.hs_rt_account.jstorm.topology.AcceptTopology</p>
+<p>2、持仓分析<br>jstorm jar hs-rt-account-0.0.1-SNAPSHOT.jar com.hundsun.account.hs_rt_account.jstorm.topology.PositionTopology</p>
+<h3 id="步骤三-1"><a href="#步骤三-1" class="headerlink" title="步骤三"></a>步骤三</h3><p>确认任务提交无误<br>jstorm list</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/项目/实时账户分析安装部署手册/" data-id="cjjedmhd5009f0gtj1tijqr17" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-项目/排错" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/项目/排错/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/项目/排错/">排错</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="1-大数据工具"><a href="#1-大数据工具" class="headerlink" title="1 大数据工具"></a>1 大数据工具</h3><h4 id="404"><a href="#404" class="headerlink" title="404"></a>404</h4></li>
+</ul>
+<p>1 看配置文件tomcat/webapps/ubas-console-server/WEB-INF/classes/application.yml</p>
+<p>2 大数据工具mysql数据库配置：用户名、密码、远程访问权限</p>
+<p>3 hsstr.sql是否运行过</p>
+<p> 看tomcat日志，找具体报错</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/项目/排错/" data-id="cjjedmhd4009d0gtj48673y5p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-项目/jioben" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/项目/jioben/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/项目/jioben/">jioben</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>`</code><br>drop table accept;<br>CREATE TABLE <code>accept</code> (<br>  <code>CLIENT_ID</code> varchar(18) NOT NULL,<br>  <code>ORGAN_FLAG</code> char(2) DEFAULT ‘’,<br>  <code>BRANCH_NO</code> decimal(10,0) NOT NULL DEFAULT ‘0’,<br>  <code>ACPT_CATEGORY_NO</code> varchar(4) NOT NULL DEFAULT ‘’,<br>  <code>ACPT_CATEGORY_NAME</code> varchar(64) NOT NULL,<br>  <code>PASS_FLAG</code> char(10) DEFAULT NULL,<br>  <code>PARAM_VALUE</code> varchar(2000) DEFAULT NULL,<br>  <code>INIT_DATE</code> decimal(10,0) DEFAULT NULL,<br>  <code>SEQ_ID</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  UNIQUE KEY <code>accept_SEQ_ID_uindex</code> (<code>SEQ_ID</code>)<br>) ENGINE=InnoDB AUTO_INCREMENT=2578 DEFAULT CHARSET=utf8;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/项目/jioben/" data-id="cjjedmhd4009c0gtjpvwdk03s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/CDH" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/CDH/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/CDH/">CDH</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4>  <code>service cloudera-scm-server start</code></li>
+<li><h4 id="查询-Service-Monitor-时发生内部错误"><a href="#查询-Service-Monitor-时发生内部错误" class="headerlink" title="查询 Service Monitor 时发生内部错误"></a>查询 Service Monitor 时发生内部错误</h4>  重启service cloudera-scm-server restart</li>
+<li><h4 id="cdh日志目录"><a href="#cdh日志目录" class="headerlink" title="cdh日志目录"></a>cdh日志目录</h4>  /var/log/cloudera-scm-server</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/CDH/" data-id="cjjedmh8r001b0gtj134bc520" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/Cache file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/Cache file/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/Cache file/">Cache file</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2018-01-05 10:02:13,061 ERROR [main] com.accept:===========/user/hive/warehouse/hs_mid.db/mid_accept_bopbusitypeinfo/000000_0</span><br><span class="line">2018-01-05 10:02:13,061 ERROR [main] com.accept: ===============/user/hive/warehouse/hs_mid.db/mid_accept_bopbusitypeinfo/000000_0</span><br><span class="line">2018-01-05 10:02:13,062 ERROR [main] com.accept: =========/user/hive/warehouse/hs_mid.db/mid_accept_bopbusitypeinfo/000000_0</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/Cache file/" data-id="cjjedmh8u001d0gtjny0zp7hl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/Hadoop F A Q" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/Hadoop F A Q/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/Hadoop F A Q/">Hadoop F A Q</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://wiki.apache.org/hadoop/FAQ" target="_blank" rel="noopener">https://wiki.apache.org/hadoop/FAQ</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/Hadoop F A Q/" data-id="cjjedmh8v001f0gtjl4ro1x6h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript/文件读写" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/JavaScript/文件读写/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/JavaScript/文件读写/">文件读写</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTML5虽然可以让我们访问本地文件系统，但是js只能被动地读取，也就是说只有用户主动触发了文件读取行为，js才能访问到File Api，这通常发生在表单选择文件或者拖拽文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/JavaScript/文件读写/" data-id="cjjedmh8w001g0gtj91a98lmw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/Hadoop 命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/Hadoop 命令/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/Hadoop 命令/">Hadoop 命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html" target="_blank" rel="noopener">官网</a></p>
+<p>credential</p>
+<pre><code>Usage: hadoop credential &lt;subcommand&gt; [options]
+create alias [-provider provider-path] [-strict] [-value credential-value]
+delete alias [-provider provider-path] [-strict] [-f]
+list [-provider provider-path] [-strict]
+</code></pre><p>例子</p>
+<pre><code>hadoop credential list -provider jceks://file/tmp/test.jceks
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/Hadoop 命令/" data-id="cjjedmh8x001h0gtj7ks2asxj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/Hbase" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/Hbase/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/Hbase/">Hbase</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hbase介绍<a href="http://blog.csdn.net/frankiewang008/article/details/41965543" target="_blank" rel="noopener">链接</a></p>
+<p>白话MySQL(RDBMS)与HBase之间</p>
+<p><img src="C:\Users\hanqian18790\Desktop\clipboard.png" alt="image"></p>
+<p>原来系统中有2张表blogtable和comment表，采用HBase后只有一张blogtable表，如果按照传统的RDBMS的话，blogtable表中的列是固定的，比如schema 定义了Author,Title,URL,text等属性，上线后表字段是不能动态增加的。但是如果采用列存储系统，比如Hbase，那么我们可以定义blogtable表，然后定义info 列族，User的数据可以分为：info:title ,info:author ,info:url 等，如果后来你又想增加另外的属性，这样很方便只需要 info:xxx 就可以了。</p>
+<p>对于Row key你可以理解row key为传统RDBMS中的某一个行的主键，Hbase是不支持条件查询以及Order by等查询，因此Row key的设计就要根据你系统的查询需求来设计了额。 Hbase中的记录是按照rowkey来排序的，这样就使得查询变得非常快。</p>
+<p>具体操作过程如下：</p>
+<p>创建blogtable表</p>
+<p> create ‘blogtable’, ‘info’,’text’,’comment_title’,’comment_author’,’comment_text’</p>
+<p>插入概要信息</p>
+<p> put ‘blogtable’, ‘1’, ‘info:title’, ‘this is doc title’<br> put ‘blogtable’, ‘1’, ‘info:author’, ‘javabloger’<br> put ‘blogtable’, ‘1’, ‘info:url’, ‘<a href="http://www.javabloger.com/index.php&#39;" target="_blank" rel="noopener">http://www.javabloger.com/index.php&#39;</a></p>
+<p> put ‘blogtable’, ‘2’, ‘info:title’, ‘this is doc title2’<br> put ‘blogtable’, ‘2’, ‘info:author’, ‘H.E.’<br> put ‘blogtable’, ‘2’, ‘info:url’, ‘<a href="http://www.javabloger.com/index.html&#39;" target="_blank" rel="noopener">http://www.javabloger.com/index.html&#39;</a></p>
+<p>插入正文信息</p>
+<p> put ‘blogtable’, ‘1’, ‘text:’, ‘what is this doc context ?’<br> put ‘blogtable’, ‘2’, ‘text:’, ‘what is this doc context2?’</p>
+<p>插入评论信息</p>
+<p> put ‘blogtable’, ‘1’, ‘comment_title:’, ‘this is doc comment_title ‘<br> put ‘blogtable’, ‘1’, ‘comment_author:’, ‘javabloger’<br> put ‘blogtable’, ‘1’, ‘comment_text:’, ‘this is nice doc’</p>
+<p> put ‘blogtable’, ‘2’, ‘comment_title:’, ‘this is blog comment_title ‘<br> put ‘blogtable’, ‘2’, ‘comment_author:’, ‘H.E.’<br> put ‘blogtable’, ‘2’, ‘comment_text:’, ‘this is nice blog’ </p>
+<p>HBase的数据查询\读取，可以通过单个row key访问，row key的range和全表扫描,大致如下：<br>注意：HBase不能支持where条件、Order by 查询，只支持按照Row key来查询，但是可以通过HBase提供的API进行条件过滤。<br>例如：<a href="http://hbase.apache.org/apidocs/org/apache/hadoop/hbase/filter/ColumnPrefixFilter.html" target="_blank" rel="noopener">http://hbase.apache.org/apidocs/org/apache/hadoop/hbase/filter/ColumnPrefixFilter.html</a></p>
+<p>scan ‘blogtable’ ,{COLUMNS =&gt; [‘text:’,’info:title’] } —&gt; 列出 文章的内容和标题</p>
+<p>scan ‘blogtable’ , {COLUMNS =&gt; ‘info:url’ , STARTROW =&gt; ‘2’} —&gt; 根据范围列出 文章的内容和标题</p>
+<p>get ‘blogtable’,’1’ —&gt; 列出 文章id 等于1的数据</p>
+<p>get ‘blogtable’,’1’, {COLUMN =&gt; ‘info’} —&gt; 列出 文章id 等于1 的 info 的头(Head)内容</p>
+<p>get ‘blogtable’,’1’, {COLUMN =&gt; ‘text’} —&gt; 列出 文章id 等于1 的 text 的具体(Body)内容</p>
+<p>get ‘blogtable’,’1’, {COLUMN =&gt; [‘text’,’info:author’]} —&gt; 列出 文章id 等于1 的内容和作者(Body/Author)内容</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/Hbase/" data-id="cjjedmh8z001k0gtjsm9yx6bi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/Hbase应用场景" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/Hbase应用场景/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/Hbase应用场景/">Hbase应用场景</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对象存储：我们知道不少的头条类、新闻类的的新闻、网页、图片存储在HBase之中，一些病毒公司的病毒库也是存储在HBase之中</p>
+<p>时序数据：HBase之上有OpenTSDB模块，可以满足时序类场景的需求</p>
+<p>推荐画像：特别是用户的画像，是一个比较大的稀疏矩阵，蚂蚁的风控就是构建在HBase之上</p>
+<p>时空数据：主要是轨迹、气象网格之类，滴滴打车的轨迹数据主要存在HBase之中，另外在技术所有大一点的数据量的车联网企业，数据都是存在HBase之中</p>
+<p>CubeDB OLAP：Kylin一个cube分析工具，底层的数据就是存储在HBase之中，不少客户自己基于离线计算构建cube存储在hbase之中，满足在线报表查询的需求</p>
+<p>消息/订单：在电信领域、银行领域，不少的订单查询底层的存储，另外不少通信、消息同步的应用构建在HBase之上</p>
+<p>Feeds流：典型的应用就是xx朋友圈类似的应用</p>
+<p>NewSQL：之上有Phoenix的插件，可以满足二级索引、SQL的需求，对接传统数据需要SQL非事务的需求</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/Hbase应用场景/" data-id="cjjedmh8z001m0gtjqq7gwm2t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/2/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/18/">18</a><a class="extend next" rel="next" href="/blog/page/4/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

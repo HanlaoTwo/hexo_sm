@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个码畜的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你才是程序员">
+<meta property="og:url" content="http://hanlaotwo.com/page/5/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="一个码畜的博客">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你才是程序员">
+<meta name="twitter:description" content="一个码畜的博客">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Hadoop/sqoop-sqoop使用示例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/sqoop-sqoop使用示例/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/sqoop-sqoop使用示例/">sqoop-sqoop使用示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="sqoop"><a href="#sqoop" class="headerlink" title="sqoop"></a>sqoop</h3><p>Sqoop是一款开源的工具，主要用于在HADOOP不传统的数据库(mysql、postgresql等)进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。Sqoop中一大亮点就是可以通过hadoop的mapreduce把数据从关系型数据库中导入数据到HDFS。</p>
+<h3 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h3><h5 id="1-使用参数"><a href="#1-使用参数" class="headerlink" title="1.使用参数"></a>1.使用参数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqoop import --connect jdbc:mysql://localhost/db --username foo --table TEST</span><br></pre></td></tr></table></figure>
+<h5 id="2-使用文件"><a href="#2-使用文件" class="headerlink" title="2.使用文件"></a>2.使用文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqoop --options-file /users/homer/work/import.txt --table TEST</span><br></pre></td></tr></table></figure>
+<p>import.txt如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import</span><br><span class="line">--connect</span><br><span class="line">jdbc:mysql://localhost/db</span><br><span class="line">--username</span><br><span class="line">foo</span><br></pre></td></tr></table></figure></p>
+<p>配置文件支持添加注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Options file for Sqoop import</span><br><span class="line">#</span><br><span class="line"># Specifies the tool being invoked</span><br><span class="line">import</span><br><span class="line"># Connect parameter and value</span><br><span class="line">--connect</span><br><span class="line">jdbc:mysql://localhost/db</span><br><span class="line"># Username parameter and value</span><br><span class="line">--username</span><br><span class="line">foo</span><br><span class="line">#</span><br><span class="line"># Remaining options should be specified in the command line.</span><br></pre></td></tr></table></figure></p>
+<h3 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h3><h4 id="1-连接数据库"><a href="#1-连接数据库" class="headerlink" title="1.连接数据库"></a>1.连接数据库</h4><p>连接</p>
+<pre><code>$ sqoop import --connect jdbc:mysql://database.example.com/employees
+
+#添加用户名和密码配置
+sqoop import --connect jdbc:mysql://localhost/db --username foo --table TEST
+</code></pre><p>安全考虑可以把password放在文件里</p>
+<pre><code>sqoop import --connect jdbc:mysql://database.example.com/employees \
+--username venkatesh --password-file ${user.home}/.password
+</code></pre><h4 id="2-选择导出数据"><a href="#2-选择导出数据" class="headerlink" title="2.选择导出数据"></a>2.选择导出数据</h4><p>–table可以配置要导出的表</p>
+<pre><code>sqoop import --connect jdbc:mysql://localhost/db --username foo --table TEST
+</code></pre><p>–columns 可以配置要导出的列名</p>
+<pre><code>--columns &quot;name,employee_id,jobtitle&quot;
+
+sqoop import --connect jdbc:mysql://localhost/db --username foo --password pwd --table user \
+--columns &quot;name,id,age&quot;
+</code></pre><p>–where 设置选择条件</p>
+<pre><code>--where &quot;age &gt; 400&quot;
+sqoop import --connect jdbc:mysql://localhost/db --username foo --password pwd --table user \
+--where &quot;age &gt; 400&quot;
+</code></pre><h4 id="3-使用sql语句"><a href="#3-使用sql语句" class="headerlink" title="3.使用sql语句"></a>3.使用sql语句</h4><p>–query 和–target-dir一起使用</p>
+<pre><code>sqoop import --connect jdbc:mysql://localhost/db --username foo --password pwd\
+--query &apos;SELECT a.*, b.* FROM a JOIN b on (a.id == b.id) WHERE $CONDITIONS&apos; \
+--split-by a.id --target-dir /user/foo/joinresults
+</code></pre><p> -m [number] 设置map数量</p>
+<pre><code>#设置1个map
+sqoop import --connect jdbc:mysql://localhost/db --username foo --password pwd\
+--query &apos;SELECT a.*, b.* FROM a JOIN b on (a.id == b.id) WHERE $CONDITIONS&apos; \
+-m 1 --split-by a.id --target-dir /user/foo/joinresults
+</code></pre><h4 id="4-分隔取出的数据"><a href="#4-分隔取出的数据" class="headerlink" title="4.分隔取出的数据"></a>4.分隔取出的数据</h4><p> –fields-terminated-by 设置字段之间的分隔符  –lines-terminated-by 设置每行之间的分隔符</p>
+<pre><code>sqoop import --connect jdbc:mysql://localhost/db --username foo --password pwd\
+--fields-terminated-by &quot;\0001&quot;  --lines-terminated-by &quot;\n&quot;;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/sqoop-sqoop使用示例/" data-id="cjjedmh9a002a0gtjxp2v7rci" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/修改hive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/修改hive/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/修改hive/">修改hive</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="1-修改设置"><a href="#1-修改设置" class="headerlink" title="1.修改设置"></a>1.修改设置</h4><p>修改配置hive.metastore.warehouse.dir</p>
+<p>  hive.metastore.warehouse.dir = /hive/home/warehouse</p>
+</li>
+<li><h4 id="2-删除原有数据库"><a href="#2-删除原有数据库" class="headerlink" title="2.删除原有数据库"></a>2.删除原有数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database hello cascade;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="3-重建数据库"><a href="#3-重建数据库" class="headerlink" title="3.重建数据库"></a>3.重建数据库</h4><p>不重建database会目录不会变</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/修改hive/" data-id="cjjedmh9b002c0gtj0yw1ex2k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/增加HDFS存储空间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/增加HDFS存储空间/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/增加HDFS存储空间/">增加HDFS存储空间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="查看存储空间"><a href="#查看存储空间" class="headerlink" title="查看存储空间"></a>查看存储空间</h3><code>`</code><br>hadoop  fs -du -h /# 查看hdfs根目录下使用量</li>
+</ul>
+<p>[root@hs03 yfzx]# hadoop fs -du -h /<br>759      2.2 K    /abc<br>7.3 K    21.8 K   /bigdata<br>549.3 M  1.6 G    /cdh<br>281.6 K  844.8 K  /data<br>0        0        /input<br>84       252      /position<br>25.2 M   75.7 M   /table<br>4.2 G    24.8 G   /tmp<br>50.3 G   153.9 G  /user</p>
+<pre><code>- ### 设置存储空间大小
+Use dfs.datanode.du.reserved configuration value in
+
+$HADOOP_HOME/conf/hdfs-site.xml 
+
+for limiting disk usage.
+
+</code></pre><p>  <property><br>    <name>dfs.datanode.du.reserved</name><br>    <!-- cluster variant --><br>    <value>182400</value><br>    <description>Reserved space in bytes per volume. Always leave this much space free for non dfs use.<br>    </description><br>  </property><br><code>`</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/增加HDFS存储空间/" data-id="cjjedmh9c002e0gtjcxrb1nco" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hadoop/报错处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Hadoop/报错处理/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Hadoop/报错处理/">报错处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="Name-node-is-in-safe-mode"><a href="#Name-node-is-in-safe-mode" class="headerlink" title="Name node is in safe mode"></a>Name node is in safe mode</h4><p>这是因为在分布式文件系统启动的时候，开始的时候会有安全模式，当分布式文件系统处于安全模式的情况下，文件系统中的内容不允许修改也不允许删除，直到安全模式结束。安全模式主要是为了系统启动的时候检查各个DataNode上数据块的有效性，同时根据策略必要的复制或者删除部分数据块。运行期通过命令也可以进入安全模式。在实践过程中，系统启动的时候去修改和删除文件也会有安全模式不允许修改的出错提示，只需要等待一会儿即可。</p>
+</li>
+</ul>
+<p>可以通过以下命令来手动离开安全模式：</p>
+<pre><code>hdfs dfsadmin -safemode leave  
+</code></pre><ul>
+<li><h4 id="内存分配不合理"><a href="#内存分配不合理" class="headerlink" title="内存分配不合理"></a>内存分配不合理</h4></li>
+</ul>
+<p>表现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2017-12-14 18:32:32,336 ERROR [Thread-52] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Could not deallocate container for task attemptId attempt_1513247318192_0014_r_000008_0</span><br><span class="line"></span><br><span class="line">2017-12-14 19:20:22,161 ERROR [RMCommunicator Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Container complete event for unknown container id container_1513249512179_0014_01_000064</span><br></pre></td></tr></table></figure></p>
+<p>解决办法</p>
+<p>修改map，reduce内存和堆栈内存</p>
+<p>可能是因为设置大了，也可能是因为设置小了。要根据机器配置修改</p>
+<p>保证为map 和reduce分配内存的时候不会超过节点的内存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn.nodemanager.resource.memory-mb=2G</span><br><span class="line">yarn.scheduler.maximum-allocation-mb=4G</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="时钟不同步"><a href="#时钟不同步" class="headerlink" title="时钟不同步"></a>时钟不同步</h4>各种报错<br>安装ntp<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ntp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>配置ntp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">restrict default ignore   //默认不允许修改或者查询ntp,并且不接收特殊封包</span><br><span class="line">restrict 127.0.0.1        //给于本机所有权限</span><br><span class="line">restrict 192.168.56.0 mask 255.255.255.0 notrap nomodify  //给于局域网机的机器有同步时间的权限</span><br><span class="line">server  192.168.56.121     # local clock</span><br><span class="line">driftfile /var/lib/ntp/drift</span><br><span class="line">fudge   127.127.1.0 stratum 10</span><br></pre></td></tr></table></figure></p>
+<p>启动 ntp：</p>
+<pre><code>service ntpd start
+</code></pre><p>设置开机启动:</p>
+<pre><code>chkconfig ntpd on
+</code></pre><ul>
+<li><h4 id="hdfs块丢失"><a href="#hdfs块丢失" class="headerlink" title="hdfs块丢失"></a>hdfs块丢失</h4></li>
+</ul>
+<p>1、首先退出hdfs namenode safe mode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">hadoop dfsadmin -safemode leave</span><br></pre></td></tr></table></figure></p>
+<p>2、修复hdfs丢失的块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop fsck /</span><br><span class="line"></span><br><span class="line">hdfs fsck  /  -delete //此方式会将丢失的块全部删除</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="HDFS-块副本数不足"><a href="#HDFS-块副本数不足" class="headerlink" title="HDFS 块副本数不足"></a>HDFS 块副本数不足</h4><blockquote>
+<p>块</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>在HDFS中，文件是以块（block）的形式存储的，而HDFS的设计初衷也是用来处理大文件的，使用抽象块正好可以满足这一需求。具体来说，比如一个很大的文件，在单一的节点上存储是不可能的，HDFS使用逻辑块的方式将这个很大的文件分成很多块，分别存储在各个节点机器上，从而实现了大文件的存储。<br>    使用抽象块作为操作的单元，方便了存储系统的管理，具体来说，就是把文件块放在DataNode上存储，把文件的元数据信息放到NameNode上管理。<br>    最后，通过给块设置副本，可以实现容错机制。</p>
+</blockquote>
+<p>1.设置副本数</p>
+<p>cdh界面选择hdfs,选择配置设置</p>
+<pre><code>dfs.replication=datanode的数量
+</code></pre><p>2.修改之前的副本数</p>
+<pre><code>hadoop fs -setrep -R 【1中设置的副本数】/
+</code></pre><ul>
+<li><h4 id="hive崩溃"><a href="#hive崩溃" class="headerlink" title="hive崩溃"></a>hive崩溃</h4></li>
+</ul>
+<p>报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@hs01 hive]# hive</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0</span><br><span class="line">2017-12-20 14:31:54,793 WARN  [main] mapreduce.TableMapReduceUtil: The hbase-prefix-tree module jar containing PrefixTreeCodec is not present.  Continuing without it.</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0</span><br><span class="line"></span><br><span class="line">Logging initialized using configuration in jar:file:/opt/cloudera/parcels/CDH-5.7.1-1.cdh5.7.1.p0.11/jars/hive-common-1.1.0-cdh5.7.1.jar!/hive-log4j.properties</span><br><span class="line">Exception in thread &quot;main&quot; java.lang.RuntimeException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</span><br><span class="line">	at org.apache.hadoop.hive.ql.session.SessionState.start(SessionState.java:540)</span><br><span class="line">	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:689)</span><br><span class="line">	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:628)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)</span><br><span class="line">	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)</span><br><span class="line">Caused by: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</span><br><span class="line">	at org.apache.hadoop.hive.metastore.MetaStoreUtils.newInstance(MetaStoreUtils.java:1493)</span><br><span class="line">	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.&lt;init&gt;(RetryingMetaStoreClient.java:67)</span><br><span class="line">	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.getProxy(RetryingMetaStoreClient.java:82)</span><br><span class="line">	at org.apache.hadoop.hive.ql.metadata.Hive.createMetaStoreClient(Hive.java:2935)</span><br><span class="line">	at org.apache.hadoop.hive.ql.metadata.Hive.getMSC(Hive.java:2954)</span><br><span class="line">	at org.apache.hadoop.hive.ql.session.SessionState.start(SessionState.java:513)</span><br><span class="line">	... 8 more</span><br></pre></td></tr></table></figure></p>
+<p>解决办法</p>
+<p>Can you please follow below steps and share the result?.</p>
+<ol>
+<li><p>Find out the node which hosting hive metastore service, you can use ambari to figure out the ip/hostname for that node.</p>
+</li>
+<li><p>ssh root login to that hive metastore node and execute below commands.</p>
+</li>
+</ol>
+<p>bash# ps -aef|grep -i org.apache.hadoop.hive.metastore.HiveMetaStore</p>
+<p>bash# lsof -i:9083</p>
+<ol start="3">
+<li>From some other node try connecting hivemetastore port using telnet.</li>
+</ol>
+<p>bash# telnet <hivemeta server=""> 9083</hivemeta></p>
+<p>If 9083 port is not occupied and ps command doesn’t show any metastore process then please try to restart the hivemestore service from ambari UI and perform same check again.</p>
+<ul>
+<li><h4 id="Hive-报错，元数据库找不到"><a href="#Hive-报错，元数据库找不到" class="headerlink" title="Hive 报错，元数据库找不到"></a>Hive 报错，元数据库找不到</h4></li>
+</ul>
+<p>报错内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Query for candidates of org.apache.hadoop.hive.metastore.model.MPartitionColumnStatistics and subclasses resulted in no possible candidates</span><br><span class="line">Required table missing : &quot;`CDS`&quot; in Catalog &quot;&quot; Schema &quot;&quot;. DataNucleus requires this table to perform its persistence operations. Either your MetaData is incorrect, or you need to enable &quot;datanucleus.autoCreateTables&quot;</span><br><span class="line">org.datanucleus.store.rdbms.exceptions.MissingTableException: Required table missing : &quot;`CDS`&quot; in Catalog &quot;&quot; Schema &quot;&quot;. DataNucleus requires this table to perform its persistence operations. Either your MetaData is incorrect, or you need to enable &quot;datanucleus.autoCreateTables&quot;</span><br><span class="line">	at org.datanucleus.store.rdbms.table.AbstractTable.exists(AbstractTable.java:485)</span><br></pre></td></tr></table></figure></p>
+<p>先检查hive下是否有mysql驱动程序</p>
+<p>解决办法</p>
+<p>1.Go to the $HIVE_HOME and run the initschema option on the schematool:</p>
+<pre><code>bin/schematool -dbType mysql -initSchema
+</code></pre><p>2.修改hive配置，允许自己建表建视图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;datanucleus.autoCreateTables&lt;/name&gt;</span><br><span class="line">&lt;value&gt;True&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后重启</p>
+<p>3.查看查看hive 用到的库，比如mysql中的hive库</p>
+<p>登录mysql</p>
+<pre><code>mysql -uroot -p******
+</code></pre><p>查看表<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use hive;</span><br><span class="line">show tables;</span><br><span class="line">select * from [sometable]</span><br></pre></td></tr></table></figure></p>
+<p>表大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">+---------------------------+</span><br><span class="line">| Tables_in_hive            |</span><br><span class="line">+---------------------------+</span><br><span class="line">| bucketing_cols            |</span><br><span class="line">| cds                       |</span><br><span class="line">| columns_v2                |</span><br><span class="line">| compaction_queue          |</span><br><span class="line">| completed_txn_components  |</span><br><span class="line">| database_params           |</span><br><span class="line">| db_privs                  |</span><br><span class="line">| dbs                       |</span><br><span class="line">| delegation_tokens         |</span><br><span class="line">| func_ru                   |</span><br><span class="line">| funcs                     |</span><br><span class="line">| global_privs              |</span><br><span class="line">| hive_locks                |</span><br><span class="line">| idxs                      |</span><br><span class="line">| index_params              |</span><br><span class="line">| master_keys               |</span><br><span class="line">| next_compaction_queue_id  |</span><br><span class="line">| next_lock_id              |</span><br><span class="line">| next_txn_id               |</span><br><span class="line">| notification_log          |</span><br><span class="line">| notification_sequence     |</span><br><span class="line">| nucleus_tables            |</span><br><span class="line">| part_col_privs            |</span><br><span class="line">| part_col_stats            |</span><br><span class="line">| part_privs                |</span><br><span class="line">| partition_events          |</span><br><span class="line">| partition_key_vals        |</span><br><span class="line">| partition_keys            |</span><br><span class="line">| partition_params          |</span><br><span class="line">| partitions                |</span><br><span class="line">| role_map                  |</span><br><span class="line">| roles                     |</span><br><span class="line">| sd_params                 |</span><br><span class="line">| sds                       |</span><br><span class="line">| sequence_table            |</span><br><span class="line">| serde_params              |</span><br><span class="line">| serdes                    |</span><br><span class="line">| skewed_col_names          |</span><br><span class="line">| skewed_col_value_loc_map  |</span><br><span class="line">| skewed_string_list        |</span><br><span class="line">| skewed_string_list_values |</span><br><span class="line">| skewed_values             |</span><br><span class="line">| sort_cols                 |</span><br><span class="line">| tab_col_stats             |</span><br><span class="line">| table_params              |</span><br><span class="line">| tbl_col_privs             |</span><br><span class="line">| tbl_privs                 |</span><br><span class="line">| tbls                      |</span><br><span class="line">| txn_components            |</span><br><span class="line">| txns                      |</span><br><span class="line">| type_fields               |</span><br><span class="line">| types                     |</span><br><span class="line">| version                   |</span><br><span class="line">+---------------------------+</span><br></pre></td></tr></table></figure></p>
+<p>4.终极解决方案</p>
+<p>重新安装hive，元数据库改名为hive2或者其他什么名字</p>
+<ul>
+<li><h4 id="sqoop-缺少驱动"><a href="#sqoop-缺少驱动" class="headerlink" title="sqoop : 缺少驱动"></a>sqoop : 缺少驱动</h4>报错：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The Network Adapter could not establish the connection</span><br><span class="line">No columns to generate for ClassWriter</span><br><span class="line">Could not load db driver class: com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决办法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar</span><br><span class="line">cp mysql-connector-java-5.1.35-bin.jar /opt/cloudera/parcels/CDH-5.0.2-1.cdh5.0.2.p0.13/lib/sqoop/lib/</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="CDH交换内存异常"><a href="#CDH交换内存异常" class="headerlink" title="CDH交换内存异常"></a>CDH交换内存异常</h4></li>
+</ul>
+<p>关闭系统交换区</p>
+<p>立即生效</p>
+<pre><code>swapoff –a
+</code></pre><p>建议永久关闭</p>
+<pre><code>sysctl vm.swappiness=0
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Hadoop/报错处理/" data-id="cjjedmh9d002g0gtjckzkfl2h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/JAVA语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/JAVA语法/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/JAVA语法/">JAVA语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-if-和-else-if"><a href="#1-if-和-else-if" class="headerlink" title="1. if 和 else if"></a>1. if 和 else if</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">else if()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>如果有满足条件的就会跳出，不执行其他的else if<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if()&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>会连续判断，直到结束</p>
+<h4 id="2-if-else-和-switch"><a href="#2-if-else-和-switch" class="headerlink" title="2. if else 和 switch"></a>2. if else 和 switch</h4><blockquote>
+<p>if else(){} 的空间效率高</p>
+</blockquote>
+<blockquote>
+<p>switch的时间效率高<br>==空间换时间==</p>
+</blockquote>
+<h4 id="3-param-new-Object-和param-null"><a href="#3-param-new-Object-和param-null" class="headerlink" title="3.param = new Object()和param = null"></a>3.param = new Object()和param = null</h4><blockquote>
+<p>param = new Object() 会初始化，真实存在</p>
+</blockquote>
+<blockquote>
+<p>param = null 参数为空，不存在</p>
+</blockquote>
+<h4 id="4-Variable-expected"><a href="#4-Variable-expected" class="headerlink" title="4.Variable expected"></a>4.Variable expected</h4><p><a href="http://stackoverflow.com/questions/31797631/variable-expected-error" target="_blank" rel="noopener">Variable expected error</a></p>
+<p>map.get(key) = new Value();</p>
+<h4 id="5-assert"><a href="#5-assert" class="headerlink" title="5.assert"></a>5.assert</h4><p><a href="http://www.cnblogs.com/wardensky/p/4307848.html" target="_blank" rel="noopener">assertion(断言)</a><br>assertion就是在程序中的一条语句，它对一个boolean表达式进行检查，一个正确程序必须保证这个boolean表达式的值为true；如果该值为false，说明程序已经处于不正确的状态下，系统将给出警告并且退出。</p>
+<p>用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. assert expression1;</span><br><span class="line">2. assert expression1: expression2;</span><br></pre></td></tr></table></figure></p>
+<p>expression1表示一个boolean表达式，expression2表示一个基本类型、表达式或者是一个Object，用于在失败时输出错误信息。</p>
+<h4 id="6-Java修饰符"><a href="#6-Java修饰符" class="headerlink" title="6.Java修饰符"></a>6.Java修饰符</h4><p>public/private/protected</p>
+<h4 id="7-Java-集合类"><a href="#7-Java-集合类" class="headerlink" title="7.Java 集合类"></a>7.Java 集合类</h4><h4 id="8-Object-o-new-Object"><a href="#8-Object-o-new-Object" class="headerlink" title="8. Object o = new Object()"></a>8. Object o = new Object()</h4><p>o.toString()和（String）o的区别</p>
+<h4 id="9-Java枚举类"><a href="#9-Java枚举类" class="headerlink" title="9.Java枚举类"></a>9.Java枚举类</h4><p><a href="http://www.cnblogs.com/zhaoyanjun/p/5659811.html" target="_blank" rel="noopener">lianjie</a></p>
+<h4 id="10-SuppressWarnings"><a href="#10-SuppressWarnings" class="headerlink" title="10.@SuppressWarnings"></a>10.@SuppressWarnings</h4><p>J2SE 提供的最后一个批注是 @SuppressWarnings。该批注的作用是给编译器一条指令，告诉它对被批注的代码元素内部的某些警告保持静默。<br>@SuppressWarnings 批注允许你选择性地取消特定代码段（即，类或方法）中的警告。其中的想法是当您看到警告时，您将调查它，如果你确定它不是问题，就可以添加一个 @SuppressWarnings 批注，以使您不会再看到警告。虽然它听起来似乎会屏蔽潜在的错误，但实际上它将提高代码安全性，因为它将防止对警告无动于衷 — 看到的每一个警告都将值得注意。<br><a href="https://zhidao.baidu.com/question/297231941.html" target="_blank" rel="noopener">来自百度知道</a></p>
+<p><a href="http://blog.csdn.net/mddy2001/article/details/8291484" target="_blank" rel="noopener">可屏蔽内容</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/JAVA语法/" data-id="cjjedmh9e002i0gtj2fn7np1u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Accumulation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Accumulation/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Accumulation/">Accumulation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="读property文件"><a href="#读property文件" class="headerlink" title="读property文件"></a>读property文件</h4><p><a href="http://shmilyaw-hotmail-com.iteye.com/blog/1899242" target="_blank" rel="noopener">链接</a></p>
+<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class IOExample &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Properties prop = new Properties();</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            prop.load(new FileInputStream(&quot;input/config/database.properties&quot;));</span><br><span class="line"></span><br><span class="line">            System.out.println(prop.getProperty(&quot;oracle.output.url&quot;));</span><br><span class="line">        &#125; catch(IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">----------------------------------------------</span><br><span class="line">public class NewApp &#123;  </span><br><span class="line">    public static void main(String[] args) &#123;  </span><br><span class="line">        Properties prop = new Properties();  </span><br><span class="line">          </span><br><span class="line">        try &#123;  </span><br><span class="line">            prop.load(NewApp.class.getClassLoader().getResourceAsStream(&quot;config.properties&quot;));  </span><br><span class="line">              </span><br><span class="line">            System.out.println(prop.getProperty(&quot;database&quot;));  </span><br><span class="line">            System.out.println(prop.getProperty(&quot;dbuser&quot;));  </span><br><span class="line">            System.out.println(prop.getProperty(&quot;dbpassword&quot;));  </span><br><span class="line">        &#125; catch(IOException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Accumulation/" data-id="cjjedmh9h002k0gtjlnzgcz0g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java字符编码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Java字符编码/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Java字符编码/">Java字符编码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://blog.csdn.net/witsmakemen/article/details/8205211" target="_blank" rel="noopener">判断</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Java字符编码/" data-id="cjjedmh9h002n0gtjp3ho52dy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java反射" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Java反射/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Java反射/">Java反射</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-反射"><a href="#1-反射" class="headerlink" title="1. 反射"></a>1. 反射</h3><p>正常情况下都是通过一个类去实例化一个对象，通过一个对象找到一个类的名称，地址，方法等类信息时用到的机制就是反射</p>
+<h4 id="一个简单的栗子："><a href="#一个简单的栗子：" class="headerlink" title="一个简单的栗子："></a>一个简单的栗子：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package com.learn.controller;</span><br><span class="line"></span><br><span class="line">public class Fanshe &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        testFanshe ts = new testFanshe();</span><br><span class="line">        System.out.println(</span><br><span class="line">                ts.getClass().getName()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class testFanshe&#123;&#125;</span><br><span class="line">```     </span><br><span class="line">运行结果如下：</span><br><span class="line">&gt; com.learn.controller.testFanshe</span><br><span class="line"></span><br><span class="line">### 2. 反射原理</span><br><span class="line">- ##### Object类</span><br><span class="line">   object类是Java中所有类的父类。</span><br><span class="line">&gt; 一切操作都是用Object类完成，类、数组的引用都可以使用Object类接收</span><br><span class="line"></span><br><span class="line">Object类的方法如下</span><br><span class="line"></span><br><span class="line">![image](C:\Users\hanqian18790\Desktop\object.png)</span><br><span class="line">- ##### Class类</span><br><span class="line">所有对象都是Class类的实例</span><br><span class="line">使用反射机制就要先获取Class类的实例</span><br><span class="line"></span><br><span class="line">实例化Class类的方法：</span><br><span class="line"></span><br><span class="line">1.对象.class</span><br><span class="line"></span><br><span class="line">2.对象.getClass()</span><br><span class="line"></span><br><span class="line">3.Class.forName(包名.类名)  ---------//更具灵活性，不用使用一个对象的实例只要知道类名和路径</span><br><span class="line"></span><br><span class="line">实例化Class类后就可以使用Class类中的方法进行反射操作了</span><br><span class="line"></span><br><span class="line">一些方法如下:</span><br><span class="line"></span><br><span class="line">![imge](C:\Users\hanqian18790\Desktop\getClass.png)</span><br><span class="line"></span><br><span class="line">### 3. 反射的应用</span><br><span class="line"></span><br><span class="line">#### 1).实例化Class后可以通过具体类的构造方法实例化一个具体对象</span><br></pre></td></tr></table></figure>
+<p>package com.learn.controller;</p>
+<p>import java.lang.reflect.Constructor;<br>import java.lang.reflect.InvocationTargetException;</p>
+<p>public class Fanshe {<br>    public static void main(String[] args) throws<br>            NoSuchMethodException,<br>            IllegalAccessException,<br>            InstantiationException,<br>            InvocationTargetException {</p>
+<pre><code>    Class&lt;?&gt; c = null;
+    try {
+        c = Class.forName(&quot;com.learn.controller.testFanshe&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    testFanshe TS0 = (testFanshe) c.newInstance();          //需要有无惨构造方法
+    Constructor&lt;?&gt;[] cons = c.getConstructors();            //返回所有构造方法
+    testFanshe TS1 = (testFanshe) cons[0].newInstance();    //newInstance()可以传入参数，如果有需要参数的构造方法的话
+
+}
+</code></pre><p>}</p>
+<p>class testFanshe {<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 2). 反射还可以：</span><br></pre></td></tr></table></figure></p>
+<p>Class&lt;?&gt;[] interfaces = c.getInterfaces();              //取得所有接口<br>Class&lt;?&gt; superclass = c.getSuperclass();                //取得父类<br>Method[] methods = c.getMethods();                      //取得方法<br>Field[] fields = c.getFields();                         //取得全部属性<br><code>`</code></p>
+<h4 id="3-还可以获取类，接口，属性，方法的修饰符，入参，入参类型。。。"><a href="#3-还可以获取类，接口，属性，方法的修饰符，入参，入参类型。。。" class="headerlink" title="3). 还可以获取类，接口，属性，方法的修饰符，入参，入参类型。。。"></a>3). 还可以获取类，接口，属性，方法的修饰符，入参，入参类型。。。</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Java反射/" data-id="cjjedmh9i002p0gtj3xu1sqyo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java注解获取" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Java注解获取/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Java注解获取/">Java注解获取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="java-注解"><a href="#java-注解" class="headerlink" title="java 注解"></a>java 注解</h3><p><a href="http://blog.csdn.net/boomhankers/article/details/70768349" target="_blank" rel="noopener">注解见另一篇笔记</a></p>
+<h5 id="注解按保存范围阶段分类"><a href="#注解按保存范围阶段分类" class="headerlink" title="注解按保存范围阶段分类"></a>注解按保存范围阶段分类</h5><p>先看一个栗子,下面是一个自定义的注解:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.SOURCE)</span><br><span class="line">public @interface myAnnotation &#123;</span><br><span class="line">    String[] value();</span><br></pre></td></tr></table></figure>
+<p>@Retention()注解，表示这个自定义注解的保存范围</p>
+<p>@Retention(RetentionPolicy.SOURCE)表示保存在源文件中</p>
+<p>分类：</p>
+<ul>
+<li>==<em>SOURCE</em>==:   此注解只会保存在源文件中，也就是.java文件，编译之后不会存在编译好的.class文件中</li>
+<li><em>==CLASS==</em>:  默认范围 此注解会保留在源文件和编译后的文件中，但不会被加载到虚拟机中</li>
+<li><em>==RUNTIME==</em>: 会保留在源文件和编译之后的文件中，运行时会被加载到JVM虚拟机中</li>
+</ul>
+<h3 id="获取注解"><a href="#获取注解" class="headerlink" title="获取注解"></a>获取注解</h3><h5 id="某一个类中的注解"><a href="#某一个类中的注解" class="headerlink" title="某一个类中的注解"></a>某一个类中的注解</h5><p>先通过反射机制获取类，然后获取指定的方法和方法的注解.</p>
+<p><em>这种方法要获取的注解一定要是运行时注解</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package com.learn.controller;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.annotation.Retention;</span><br><span class="line">import java.lang.annotation.RetentionPolicy;</span><br><span class="line">import java.lang.annotation.Target;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line">import static java.lang.annotation.ElementType.*;</span><br><span class="line"></span><br><span class="line">@Target(&#123;TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Myanno &#123;</span><br><span class="line">    String value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Myanotaion &#123;</span><br><span class="line">    @Myanno(&quot;a method&quot;)</span><br><span class="line">    @Override</span><br><span class="line">    public String toString()&#123;</span><br><span class="line">        return &quot;llalal&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class GetAnno&#123;</span><br><span class="line">    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException &#123;</span><br><span class="line">        Class&lt;?&gt; c = Class.forName(&quot;com.learn.controller.Myanotaion&quot;);</span><br><span class="line">        Method methods = c.getMethod(&quot;toString&quot;);</span><br><span class="line">        Annotation annos[] = methods.getAnnotations();</span><br><span class="line">        Annotation myanno = methods.getAnnotation(Myanno.class);</span><br><span class="line">        System.out.println(myanno);</span><br><span class="line">        System.out.println(annos[0]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>  methods.getAnnotations();是获取所有注解</p>
+<p>  methods.getAnnotation(Myanno.class);是获取指定注解</p>
+</blockquote>
+<h6 id="获取编译阶段的注解"><a href="#获取编译阶段的注解" class="headerlink" title="获取编译阶段的注解"></a>获取编译阶段的注解</h6><p>编译时注解指的是@Retention的值为CLASS的注解</p>
+<p>自定义类继承 AbstractProcessor类；</p>
+<p>重写其中的 process 函数。</p>
+<p>编译器在编译时会自动查找所有继承自 AbstractProcessor 的类，然后调用他们的 process 方法。</p>
+<p><a href="http://www.open-open.com/lib/view/open1423471786764.html" target="_blank" rel="noopener">注解获取方式</a></p>
+<h6 id="获取运行时注解"><a href="#获取运行时注解" class="headerlink" title="获取运行时注解"></a>获取运行时注解</h6>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Java注解获取/" data-id="cjjedmh9j002q0gtjrvtnjcj0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java程序远程Debug" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Java程序远程Debug/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Java程序远程Debug/">Java程序远程Debug</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="0-环境"><a href="#0-环境" class="headerlink" title="0.环境"></a>0.环境</h4><p>远程服务器（本地也可以应该）</p>
+<p>远程服务器JDK环境</p>
+<p>本地IDE（这里是idea）</p>
+<h4 id="1-准备程序"><a href="#1-准备程序" class="headerlink" title="1.准备程序"></a>1.准备程序</h4><p>先准备一个要远程debug的程序，这里新建一个test工程，并导出jar包。比如一个名叫Test的jar文件</p>
+<h4 id="2-远程启动"><a href="#2-远程启动" class="headerlink" title="2.远程启动"></a>2.远程启动</h4><p>把包放到远程服务器的目录下</p>
+<p>终端输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=&quot;8000&quot; -jar</span><br></pre></td></tr></table></figure></p>
+<p> 终端返回下面结果说明卡伊开始debug了<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Listening for transport dt_socket at address: 8000</span><br></pre></td></tr></table></figure></p>
+<p> 如图：<br> <img src="C:\Users\hanqian18790\Desktop\youdaoIMG\QQ截图20170523195051.png" alt="image"></p>
+<h4 id="3-本地启动"><a href="#3-本地启动" class="headerlink" title="3.本地启动"></a>3.本地启动</h4><p>ide上配置远程，</p>
+<p>点击Eidt Cnfigration</p>
+<p>idea配置如下：<br><img src="C:\Users\hanqian18790\Desktop\youdaoIMG\remotedebug_local.png" alt="image"></p>
+<h4 id="4-参数说明"><a href="#4-参数说明" class="headerlink" title="4.参数说明"></a>4.参数说明</h4><p>远程调试时的一些VM参数说明如下：<br>header 1 | header 2<br>—|—<br>-XDebug             |  启用调试。<br>-Xnoagent            |禁用默认sun.tools.debug调试器。<br>-Djava.compiler=NONE| 禁止 JIT 编译器的加载。<br>-Xrunjdwp           | 加载JDWP的JPDA参考执行实例。<br>transport            | 用于在调试程序和 VM 使用的进程之间通讯。<br>dt_socket            | 套接字传输。<br>dt_shmem             | 共享内存传输，仅限于 Windows。<br>server=y/n           | VM是否需要作为调试服务器执行。<br>address        | 调试服务器的端口号，客户端用来连接服务器的端口号。<br>suspend=y/n          | 是否在调试客户端建立连接之后启动 VM 。 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Java程序远程Debug/" data-id="cjjedmh9l002t0gtjg56zwnno" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/4/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/">6</a><a class="page-number" href="/blog/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/18/">18</a><a class="extend next" rel="next" href="/blog/page/6/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

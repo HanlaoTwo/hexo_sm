@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>你才是程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个码畜的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你才是程序员">
+<meta property="og:url" content="http://hanlaotwo.com/page/6/index.html">
+<meta property="og:site_name" content="你才是程序员">
+<meta property="og:description" content="一个码畜的博客">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你才是程序员">
+<meta name="twitter:description" content="一个码畜的博客">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="你才是程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">你才是程序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">no bb show your code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hanlaotwo.com"></form>
+      </div>
+    </div>
+  </div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1560148445627079",
+    enable_page_level_ads: true
+  });
+</script>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Java/Map中插入JSON类型的value" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Map中插入JSON类型的value/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Map中插入JSON类型的value/">Map中插入JSON类型的value</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="向一个map中插入JSON格式的value"><a href="#向一个map中插入JSON格式的value" class="headerlink" title="向一个map中插入JSON格式的value"></a>向一个map中插入JSON格式的value</h3><p>如果直接用字符串拼接成json需要转译字符“\”,</p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.put(&quot;hello&quot;,&quot;&#123;\&quot;he\&quot;,\&quot;llo\&quot;&#125;&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>如果不加入转译字符就会报错，但是这样根据key取value的时候就会输出转译字符，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;\&quot;wor\&quot;:\&quot;ld\&quot;&#125;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>为了能正常的输出JSON字符串需要把字符串转正json格式。</p>
+<p>使用fastjson<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.toJSONString(&quot;&#123;\&quot;wor\&quot;:\&quot;ld\&quot;&#125;&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package com.aha</span><br><span class="line"></span><br><span class="line">import com.alibaba.fastjson.JSON;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by han</span><br><span class="line"> */</span><br><span class="line">public class testJSON &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Map&lt;String,String&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;hello&quot;,&quot;&#123;\&quot;he\&quot;,\&quot;llo\&quot;&#125;&quot;);</span><br><span class="line">        map.put(&quot;world&quot;, JSON.toJSONString(&quot;&#123;\&quot;wor\&quot;:\&quot;ld\&quot;&#125;&quot;));</span><br><span class="line">        for (String key : map.keySet()) &#123;</span><br><span class="line">            System.out.println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;+map.get(key));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&#123;\&quot;wor\&quot;:\&quot;ld\&quot;&#125;&quot;</span><br><span class="line"></span><br><span class="line">&#123;&quot;he&quot;,&quot;llo&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Map中插入JSON类型的value/" data-id="cjjedmh9l002v0gtj956lmk0y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java获取工程jar包war包中的文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Java获取工程jar包war包中的文件/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Java获取工程jar包war包中的文件/">Java获取工程jar包war包中的文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-相对路径有问题"><a href="#1-相对路径有问题" class="headerlink" title="1.相对路径有问题"></a>1.相对路径有问题</h4><p>工程目录如图：</p>
+<p>–<br>用相对路径的方法可以获取跟src同一目录下的js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//scripts前不要加   “/”</span><br><span class="line">        FileReader file = </span><br><span class="line">        new FileReader(&quot;scripts/textchat.js&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>但是这样打包之后会找不到文件</p>
+<h4 id="2-使用反射"><a href="#2-使用反射" class="headerlink" title="2.使用反射"></a>2.使用反射</h4><p>把文件放在resource目录下</p>
+<p>用反射获取类文件编译后所在目录</p>
+<p>然后用获取到的路径+相对路径获取文件</p>
+<p>测试类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class paths &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[]) throws FileNotFoundException &#123;</span><br><span class="line">    </span><br><span class="line">        //下面三种方法都可以获取相对路径</span><br><span class="line">        System.out.println(paths.class.</span><br><span class="line">        getResource(&quot;/&quot;).</span><br><span class="line">        getPath());</span><br><span class="line">        </span><br><span class="line">        System.out.println(paths.class.</span><br><span class="line">        getResource(&quot;&quot;).</span><br><span class="line">        getPath());</span><br><span class="line">        </span><br><span class="line">        System.out.println(paths.class.</span><br><span class="line">        getClassLoader().getResource(&quot;&quot;).</span><br><span class="line">        getPath());</span><br><span class="line">        </span><br><span class="line">        //获取文件</span><br><span class="line">        FileReader file = </span><br><span class="line">        new FileReader(paths.class.</span><br><span class="line">        getResource(&quot;/&quot;).</span><br><span class="line">        getPath()+&quot;scripts/textchat.js&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样在打包之后就可以访问想要的文件了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Java获取工程jar包war包中的文件/" data-id="cjjedmh9m002y0gtj49y5db3e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Jetty最小实例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Jetty最小实例/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Jetty最小实例/">Jetty最小实例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Jetty最小实例/" data-id="cjjedmh9n00300gtj572vsn0z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/内存溢出" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/内存溢出/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/内存溢出/">内存溢出</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>links</p>
+<p><a href="https://www.cnblogs.com/zzck/archive/2016/07/26/5707168.html" target="_blank" rel="noopener">https://www.cnblogs.com/zzck/archive/2016/07/26/5707168.html</a></p>
+<p><a href="http://www.jb51.net/article/106520.htm" target="_blank" rel="noopener">http://www.jb51.net/article/106520.htm</a></p>
+<p><a href="https://stackoverflow.com/questions/11435613/whats-the-difference-between-stackoverflowerror-and-outofmemoryerror" target="_blank" rel="noopener">https://stackoverflow.com/questions/11435613/whats-the-difference-between-stackoverflowerror-and-outofmemoryerror</a></p>
+<p><a href="http://www.cnblogs.com/penghongwei/p/3603326.html" target="_blank" rel="noopener">http://www.cnblogs.com/penghongwei/p/3603326.html</a></p>
+<p><a href="https://plumbr.io/outofmemoryerror/gc-overhead-limit-exceeded" target="_blank" rel="noopener">https://plumbr.io/outofmemoryerror/gc-overhead-limit-exceeded</a></p>
+<p>java code<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by hanqian18790 on 2017/12/25.</span><br><span class="line"> * fuck</span><br><span class="line"> */</span><br><span class="line">public class OutOfMemeroy &#123;</span><br><span class="line">    public static void main(String[] as)&#123;</span><br><span class="line">        System.out.println(&quot;fuck u mm&quot;);</span><br><span class="line">        new OutOfMemeroy().StackOverflow(&quot;fuck&quot;);</span><br><span class="line">        new OutOfMemeroy().GCOverHeadLimit();</span><br><span class="line">        new OutOfMemeroy().HeapSpace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void StackOverflow(Object o)&#123;</span><br><span class="line">        if(o==null)&#123;</span><br><span class="line">            o = new OutOfMemeroy();</span><br><span class="line">        &#125;</span><br><span class="line">        StackOverflow(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void GCOverHeadLimit()&#123;</span><br><span class="line">        for(int i = 0;i&lt;100;i++)&#123;</span><br><span class="line">            new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">            new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">            new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">            new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(1);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void HeapSpace()&#123;</span><br><span class="line">        new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">        new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">        new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">        new TestThread(System.currentTimeMillis()+&quot;&quot;).run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class TestThread extends Thread&#123;</span><br><span class="line">    public TestThread(String name) &#123;</span><br><span class="line">        super(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void run() &#123;</span><br><span class="line">        HashMap map = new HashMap();</span><br><span class="line">        while (true)&#123;</span><br><span class="line">            map.put(System.currentTimeMillis(),map);</span><br><span class="line">            System.out.println(System.currentTimeMillis());</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(1);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>When you start JVM you define how much RAM it can use use for processing. JVM divides this into certain memory locations for its processing purpose, two of those are Stack &amp; Heap</p>
+<p>OutOfMemoryError is related to Heap. If you have large objects (or) referenced objects in memory, then you will see OutofMemoryError. If you have strong references to objects, then GC can’t clean the memory space allocated for that object. When JVM tries to allocate memory for new object and not enough space available it throws OutofMemoryError because it can’t allocate required amount of memory.</p>
+<p>How to avoid: Make sure un-necessary objects are available for GC</p>
+<p>StackOverflowError is related to stack. All your local variables and methods calls related data will be on stack. For every method call one stack frame will be created and local as well as method call related data will be placed inside the stack frame. Once method execution is completed, stack frame will be removed. ONE WAY to reproduce this is, have infinite loop for method call, you will see stackoverflow error, because stack frame will be populated with method data for every call but it won’t be freed (removed).</p>
+<p>How to avoid: Make sure method calls are ending (not in infinite loop)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/内存溢出/" data-id="cjjedmh9o00320gtj5wfbfvlt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Jconsle远程配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/Jconsle远程配置/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/Jconsle远程配置/">Jconsle远程配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=xxxx&quot;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/Jconsle远程配置/" data-id="cjjedmh9p00340gtj3psv84cl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/单例模式不单例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/单例模式不单例/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/单例模式不单例/">单例模式不单例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一个最简单的单例："><a href="#一个最简单的单例：" class="headerlink" title="一个最简单的单例："></a>一个最简单的单例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;  </span><br><span class="line">    private Singleton() &#123;&#125;  </span><br><span class="line">    private static Singleton single=null;  </span><br><span class="line">    //静态工厂方法   </span><br><span class="line">    public static Singleton getInstance() &#123;  </span><br><span class="line">         if (single == null) &#123;    </span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">             return new Singleton();  </span><br><span class="line">             </span><br><span class="line">             </span><br><span class="line">             </span><br><span class="line">         &#125;    </span><br><span class="line">        return single;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="错误原因："><a href="#错误原因：" class="headerlink" title="错误原因："></a>错误原因：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (single == null) &#123;    </span><br><span class="line">     </span><br><span class="line">         return new Singleton();  </span><br><span class="line">         </span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>这个地方直接return了一个实例</p>
+<p>虽然判断了属性中的单例是不是为空</p>
+<p>但是实例化后没有赋值给属性单例</p>
+<p>所以一直为空，每次都会去实例化一个新的</p>
+<p>这样就不是单例了</p>
+<h4 id="改正"><a href="#改正" class="headerlink" title="改正"></a>改正</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;  </span><br><span class="line">    private Singleton() &#123;&#125;  </span><br><span class="line">    private static Singleton single=null;  </span><br><span class="line">    //静态工厂方法   </span><br><span class="line">    public static Singleton getInstance() &#123;  </span><br><span class="line">         if (single == null) &#123;    </span><br><span class="line">             single = new Singleton();  </span><br><span class="line">         &#125;    </span><br><span class="line">        return single;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例化然后赋值给属性就可以了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/单例模式不单例/" data-id="cjjedmh9q00360gtj5iubzgs9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/lambda" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/lambda/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/lambda/">lambda</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遍历集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keySet.forEach((key) -&gt; &#123;System.out.println(userinfoMap.get(key));&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/lambda/" data-id="cjjedmh9r00380gtjd93jn9j1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/序列化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/序列化/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/序列化/">序列化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.runoob.com/java/java-serialization.html" target="_blank" rel="noopener">Java 序列化</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/java/j-lo-serial/index.html" target="_blank" rel="noopener">Java 序列化的高级认识</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/序列化/" data-id="cjjedmh9s003a0gtjne5jv8xh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/文件增量读写" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/文件增量读写/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/文件增量读写/">文件增量读写</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用RandomAccessFile</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/文件增量读写/" data-id="cjjedmh9t003c0gtjjuyvncox" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/注解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/10/Java/注解/" class="article-date">
+  <time datetime="2018-07-10T13:09:19.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/07/10/Java/注解/">注解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="注解是什么"><a href="#注解是什么" class="headerlink" title="注解是什么"></a>注解是什么</h3><p>注解是描述Java代码的代码，它能够被编译器解析，注解处理工具在运行时也能够解析注解。用来标识代码，提供额外的信息做特殊处理。<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public String toString()&#123;</span><br><span class="line">    return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@Override 是一个常用的注解，它标识我们重写了某个方法。</p>
+<h3 id="注解的作用"><a href="#注解的作用" class="headerlink" title="注解的作用"></a>注解的作用</h3><p>还是@Override注解，Ctrl+左键点击，查看源代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package java.lang;</span><br><span class="line">import java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Indicates that a method declaration is intended to override a</span><br><span class="line"> * method declaration in a supertype. If a method is annotated with</span><br><span class="line"> * this annotation type compilers are required to generate an error</span><br><span class="line"> * message unless at least one of the following conditions hold:</span><br><span class="line"> *</span><br><span class="line"> * &lt;ul&gt;&lt;li&gt;</span><br><span class="line"> * The method does override or implement a method declared in a</span><br><span class="line"> * supertype.</span><br><span class="line"> * &lt;/li&gt;&lt;li&gt;</span><br><span class="line"> * The method has a signature that is override-equivalent to that of</span><br><span class="line"> * any public method declared in &#123;@linkplain Object&#125;.</span><br><span class="line"> * &lt;/li&gt;&lt;/ul&gt;</span><br><span class="line"> *</span><br><span class="line"> * @author  Peter von der Ah&amp;eacute;</span><br><span class="line"> * @author  Joshua Bloch</span><br><span class="line"> * @jls 9.6.1.4 @Override</span><br><span class="line"> * @since 1.5</span><br><span class="line"> */</span><br><span class="line">@Target(ElementType.METHOD)</span><br><span class="line">@Retention(RetentionPolicy.SOURCE)</span><br><span class="line">public @interface Override &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注释的大致意思是当一个方法被这个注解标记的时候要满足：</p>
+<p><em>实现了或者重写了父类的方法</em></p>
+<p><em>实现或者重写了Object类的方法</em></p>
+<h3 id="Java提供的注解"><a href="#Java提供的注解" class="headerlink" title="Java提供的注解"></a>Java提供的注解</h3><blockquote>
+<p> @SuppressWarnings()</p>
+<p>  @Property</p>
+<p>   @Ignore</p>
+<p>   @Deprecated</p>
+<p>…</p>
+</blockquote>
+<ul>
+<li><h5 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h5>在@override的源码中有<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.METHOD)</span><br><span class="line">@Retention(RetentionPolicy.SOURCE)</span><br><span class="line">public @interface Override &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>@Target和@Retention是元注解。元注解即用来描述注解的注解，只能应用于对方法进行注解。</p>
+<h5 id="在JDK源码中注解包内容如图"><a href="#在JDK源码中注解包内容如图" class="headerlink" title="在JDK源码中注解包内容如图"></a>在JDK源码中注解包内容如图</h5><p><img src="C:\Users\Hanke_000\Desktop\1.jpg" alt="image"></p>
+<h5 id="类之间的关系如图"><a href="#类之间的关系如图" class="headerlink" title="类之间的关系如图"></a>类之间的关系如图</h5><p><img src="C:\Users\Hanke_000\Desktop\diagram.png" alt="image"><br>@Document、@Target、@Retention和@inherrited是元注解</p>
+<h5 id="元注解的作用"><a href="#元注解的作用" class="headerlink" title="元注解的作用"></a>元注解的作用</h5><ol>
+<li><p>Documented<br>当一个注解类型被@Documented元注解所描述时，那么无论在哪里使用这个注解，都会被Javadoc工具文档化</p>
+</li>
+<li><p>Inherited型是自动继承的。具体解释如下：若一个注解类型被Inherited元注解所修饰，则当用户在一个类声明中查询该注解类型时，若发现这个类声明中不包含这个注解类型，则会自动在这个类的父类中查询相应的注解类型，这个过程会被重复，直到该注解类型被找到或是查找完了Object类还未找到</p>
+</li>
+<li>Retention<br>我们在上面已经见到个这个元注解，它表示一个注解类型会被保留到什么时候</li>
+<li>Target<br>这个元注解说明了被修饰的注解的应用范围，也就是被修饰的注解可以用来注解哪些程序元素.</li>
+</ol>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><ol>
+<li>注解类型通过”@interface“关键字定义的</li>
+<li>在”注解体“中，所有的方法均没有方法体且只允许public和abstract这两种修饰符号（不加修饰符缺省为public），注解方法不允许有throws子句；</li>
+<li>注解方法的返回值只能为以下几种：原始数据类型）, String, Class, 枚举类型, 注解和它们的一维数组，可以为方法指定默认返回值。</li>
+</ol>
+<p>下面是一个自定义的注解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.SOURCE)</span><br><span class="line">public @interface myAnnotation &#123;</span><br><span class="line">    String[] value();</span><br></pre></td></tr></table></figure></p>
+<h3 id="注解的应用"><a href="#注解的应用" class="headerlink" title="注解的应用"></a>注解的应用</h3><ul>
+<li>生成文档。这是最常见的，也是Java 最早提供的注解。常用的有@see @param @return 等</li>
+<li>跟踪代码依赖性，实现替代配置文件功能。比较常见的是spring 2.5 开始的基于注解配置。作用就是减少配置。现在的框架基本都使用了这种配置来减少配置文件的数量。以后java的程序开发，最多的也将实现注解配置，具有很大用处</li>
+<li>在编译时进行格式检查。如@override 放在方法前，如果你这个方法并不是覆盖了超类方法，则编译时就能检查出。</li>
+<li>标记业务类，执行业务方法</li>
+<li></li>
+</ul>
+<p><a href="http://docs.oracle.com/javase/7/docs/api/" target="_blank" rel="noopener">javaAPI</a></p>
+<p><a href="http://www.importnew.com/10294.html" target="_blank" rel="noopener">理解</a></p>
+<p><a href="http://blog.csdn.net/beyond0851/article/details/8520993" target="_blank" rel="noopener">使用场景1</a></p>
+<p><a href="http://www.cnblogs.com/yanbincn/archive/2012/06/19/2554318.html" target="_blank" rel="noopener">使用场景2</a></p>
+<p><a href="http://www.importnew.com/23816.html" target="_blank" rel="noopener">java中注解获取</a></p>
+<p><a href="http://fanyc.iteye.com/blog/2224809" target="_blank" rel="noopener">Spring获取注解</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-spring-iocannt/" target="_blank" rel="noopener">Spring注解大全</a></p>
+<p><a href="http://snv.iteye.com/blog/2277054" target="_blank" rel="noopener">获取自定义注解</a></p>
+<p><a href="http://www.itwendao.com/article/detail/315485.html" target="_blank" rel="noopener">Spring注解获取</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanlaotwo.com/2018/07/10/Java/注解/" data-id="cjjedmh9u003e0gtjdf8pptjq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/5/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="page-number" href="/blog/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/18/">18</a><a class="extend next" rel="next" href="/blog/page/7/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Jstrom/">Jstrom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/work/">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/blog/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/blog/tags/Jstrom/" style="font-size: 12.5px;">Jstrom</a> <a href="/blog/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/blog/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/blog/tags/mysql/" style="font-size: 14.17px;">mysql</a> <a href="/blog/tags/note/" style="font-size: 18.33px;">note</a> <a href="/blog/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/blog/tags/python/" style="font-size: 19.17px;">python</a> <a href="/blog/tags/redis/" style="font-size: 15px;">redis</a> <a href="/blog/tags/scala/" style="font-size: 10px;">scala</a> <a href="/blog/tags/spark/" style="font-size: 15.83px;">spark</a> <a href="/blog/tags/web/" style="font-size: 10.83px;">web</a> <a href="/blog/tags/work/" style="font-size: 10px;">work</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/开发工具/" style="font-size: 15px;">开发工具</a> <a href="/blog/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/blog/tags/项目/" style="font-size: 11.67px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----Spring+redis/">redis增删改查----Spring+redis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/资料/">资料</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis增删改查----控制台/">redis增删改查----控制台</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/springLTredis/">springLTredis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/10/数据库/redis/redis配置/">redis配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Han Laotwo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
